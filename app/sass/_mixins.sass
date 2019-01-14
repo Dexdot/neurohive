@@ -1,0 +1,99 @@
+// Clarke
+@font-face 
+	font-family: 'Clarke'
+	src: url('../fonts/clarke/Clarke.woff2') format('woff2'),url('../fonts/clarke/Clarke.woff') format('woff')
+	font-weight: 400
+	font-style: normal
+=clarke
+	font-family: 'Clarke', sans-serif
+	font-weight: 400
+
+
+// Geometria
+@font-face 
+	font-family: 'Geometria'
+	src: url('../fonts/geometria/Geometria-Bold.woff2') format('woff2'),url('../fonts/geometria/Geometria-Bold.woff') format('woff')
+	font-weight: 700
+	font-style: normal
+=geo
+	font-family: 'Geometria', sans-serif
+	font-weight: 700
+
+
+// Mont
+@font-face 
+	font-family: 'Mont'
+	src: url('../fonts/mont/Mont-Bold.woff2') format('woff2'),url('../fonts/mont/Mont-Bold.woff') format('woff')
+	font-weight: 700
+	font-style: normal
+=mont
+	font-family: 'Mont', sans-serif
+	font-weight: 700
+
+
+// Muller
+@font-face 
+	font-family: 'Muller'
+	src: url('../fonts/muller/MullerLight.woff2') format('woff2'),url('../fonts/muller/MullerLight.woff') format('woff')
+	font-weight: 300
+	font-style: normal
+@font-face 
+	font-family: 'Muller'
+	src: url('../fonts/muller/MullerRegular.woff2') format('woff2'),url('../fonts/muller/MullerRegular.woff') format('woff')
+	font-weight: 400
+	font-style: normal
+@font-face 
+	font-family: 'Muller'
+	src: url('../fonts/muller/MullerMedium.woff2') format('woff2'),url('../fonts/muller/MullerMedium.woff') format('woff')
+	font-weight: 500
+	font-style: normal
+@font-face 
+	font-family: 'Muller'
+	src: url('../fonts/muller/MullerBold.woff2') format('woff2'),url('../fonts/muller/MullerBold.woff') format('woff')
+	font-weight: 700
+	font-style: normal
+=muller($weight)
+	@if $weight == lt
+		font-family: 'Muller', sans-serif
+		font-weight: 300
+	@if $weight == reg
+		font-family: 'Muller', sans-serif
+		font-weight: 400
+	@if $weight == md
+		font-family: 'Muller', sans-serif
+		font-weight: 500
+	@if $weight == bold
+		font-family: 'Muller', sans-serif
+		font-weight: 700
+
+
+// Osnova Pro
+@font-face 
+	font-family: 'Osnova Pro'
+	src: url('../fonts/osnova/OsnovaPro-Regular.woff2') format('woff2'),url('../fonts/osnova/OsnovaPro-Regular.woff') format('woff')
+	font-weight: 400
+	font-style: normal
+=osnova
+	font-family: 'Open Sans', sans-serif
+	font-weight: 400
+
+
+=flex($direction, $wrap, $justify, $align)
+	display: flex
+	flex-flow: $direction $wrap
+	justify-content: $justify
+	align-items: $align
+
+
+=left-line
+	padding-left: 109px
+	position: relative
+	&::before
+		content: ''
+		display: block
+		position: absolute
+		top: 10px
+		left: 0
+		width: 78px
+		height: 2px
+		background: #7c167f

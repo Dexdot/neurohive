@@ -1,0 +1,3659 @@
+@import "hamburgers"
+@import "libs"
+@import "mixins"
+@import "vars"
+@import "rfs"
+
+body
+	+rfs(18)
+	color: #b0aeda
+	+muller(reg)
+
+	position: relative
+	opacity: 1
+
+	background: linear-gradient(to right, #090025 0%,#2f0028 100%)
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#090025', endColorstr='#2f0028',GradientType=1 )
+	&::-webkit-scrollbar
+		width: 2px
+		height: 4px
+		&-thumb
+			background-color: #b836c6
+			border-radius: 100px
+
+h2
+	margin-bottom: 20px
+	+rfs(60)
+	color: #e0e6ff
+	+muller(md)
+	letter-spacing: 9.55px
+h3
+	margin-bottom: 20px
+	+rfs(52)
+	color: #dddbfe
+	+muller(md)
+h4
+	margin-bottom: 20px
+	+rfs(36)
+	color: #dddbfe
+	+muller(md)
+h5
+	+rfs(24)
+	color: #dddbfe
+	+muller(reg)
+
+// Util
+.relative
+	position: relative
+.text-center
+	text-align: center
+.rimg
+	display: block
+	max-width: 100%
+	height: auto
+.letter
+	min-width: 0.3em
+	display: inline-block
+	opacity: 0
+	transform: translateX(100%)
+.bg-mask
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	background: linear-gradient(to right, #090025 0%,#2f0028 100%)
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#090025', endColorstr='#2f0028',GradientType=1 )
+	transition: 1s ease-in-out
+	pointer-events: none
+	opacity: 0
+	&.is-visible
+		opacity: 0.5
+
+
+// Navigation
+.menu
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: calc(100vh - 70px)
+	display: none
+	flex-direction: column
+	justify-content: flex-end
+	z-index: 9
+	overflow-y: auto
+	background: transparent
+	transition: all 0.4s ease-in-out
+	
+	opacity: 0
+	pointer-events: none
+	&-list
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		display: flex
+		flex-direction: column
+		align-items: center
+		justify-content: center
+		&-item
+			margin-bottom: 3vw
+			white-space: nowrap
+			cursor: pointer
+			&:last-child
+				margin-bottom: 0
+			a
+				white-space: nowrap
+				cursor: pointer
+				+rfs(30)
+				+muller(md)
+				color: #dcdbfd
+				text-transform: uppercase
+				letter-spacing: 0.3em
+
+				transition: all 0.2s ease-in-out
+				&:hover
+					letter-spacing: 0.35em
+
+	&.is-active
+		opacity: 1
+		pointer-events: auto
+	.header__logo
+		padding-top: 2.6%
+	.lang
+		position: absolute
+		top: 2vw
+		right: 10vw
+		&__btn
+			+muller(md)
+			color: #4d5566
+			margin-right: 20px
+.hamburger 
+	display: block
+	position: fixed
+	top: 2vw
+	right: 2.9%
+	padding: 0
+	z-index: 10
+	outline: none
+	border-radius: 50%
+	width: 35px
+	height: 35px
+	transform: translateX(-62px)
+	transition: all 0.7s
+	opacity: 0
+	pointer-events: none
+	&-text
+		position: absolute
+		top: 0
+		right: -15px
+		transform: translateX(100%)
+		transition: all 0.2s ease-in-out
+
+		+muller(bold)
+		color: #f3f2ff
+		font-size: 12px
+		text-transform: uppercase
+		letter-spacing: 2.4px
+	&-box 
+		transform: translateY(2px)
+	&.is-visible
+		opacity: 1
+		pointer-events: auto
+	&.dark
+		.hamburger
+			&-text
+				color: #495163
+			&-box::before
+				color: #495163
+			&-inner, &-inner::before, &-inner::after
+				background: #495163
+	&.is-active
+		.hamburger
+			&-text
+				color: #fff
+			&-box::before
+				color: #fff
+			&-inner, &-inner::before, &-inner::after
+				background: #fff
+.hud
+	&--main
+		position: absolute
+		bottom: 8vh
+	&-bottom
+		width: 100%
+		.line
+			display: inline-block
+			vertical-align: middle
+			width: 98px
+			margin: 0
+			margin-right: 3em
+	&__icon
+		display: inline-block
+		vertical-align: middle
+		margin-right: 3em
+
+		position: relative
+		height: 19px
+		width: 19px
+		&::before
+			content: ''
+			position: absolute
+			display: block
+			top: -9.5px
+			left: -9.5px
+			width: 38px
+			height: 38px
+			border-radius: 50%
+			border-bottom: 1px solid transparent
+			border-right: 1px solid transparent
+			border-top: 1px solid transparent
+			border-left: 1px solid transparent
+			transition: all 0.2s ease-in-out
+		&:hover
+			&::before
+				animation: border 0.4s ease-in-out 0s 1 forwards
+				transform: rotate(180deg) scale(1.1)
+
+
+		&:nth-child(4)
+			margin-right: 0
+		svg 
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+			fill: #fff
+			transition: all 0.2s ease-in-out
+	&__deadline
+		float: right
+		&-date
+			color: #f3f2ff
+			+muller(bold)
+			+rfs(18)
+			text-transform: uppercase
+			letter-spacing: 3.6px
+		.line
+			margin-right: 1.7em
+	&-timer
+		width: 100%
+		&__inner
+			margin-left: auto
+			display: flex
+			flex-direction: row
+			align-items: center
+			justify-content: space-between
+		&__cell
+			+rfs(10)
+			+muller(reg)
+			color: #f3f2ff
+			text-transform: uppercase
+			letter-spacing: 3.6px
+			span
+				display: block
+				color: #7c167f
+				+mont
+				+rfs(28)
+		&.hud--main
+			transform: translateY(120%)
+.fixed-nav
+	position: fixed
+	top: 50%
+	left: 40px
+	transform: translate(-150%, -50%)
+
+	opacity: 0
+	&__list
+		&-item
+			display: block
+			cursor: pointer
+			width: 30px
+			min-height: 40px
+			height: 8vh
+			border-radius: 50px
+
+			transition: all 0.3s ease-in-out
+			position: relative
+			&::before
+				content: ''
+				z-index: -1
+				position: absolute
+				top: 0
+				left: 0
+				display: block
+				width: 3px
+				height: 3px
+				border-radius: 50%
+				background: #8a798b
+			&:last-child::after
+				content: ''
+				z-index: -1
+				position: absolute
+				bottom: -3px
+				left: 0
+				display: block
+				width: 3px
+				height: 3px
+				border-radius: 50%
+				background: #8a798b
+			&:hover
+				.fixed-nav__number
+					transform: translate(-28px, -50%)
+					opacity: 1					
+				.fixed-nav__name
+					opacity: 1
+			&.active
+				.fixed-nav
+					&__line
+						transform: translateX(0)
+						width: 3px
+						opacity: 1
+					&__number
+						opacity: 1
+						transform: translate(-28px, -50%)
+					&__name
+						opacity: 1
+						pointer-events: auto
+			a
+				width: 100%
+				height: 100%
+				position: absolute
+				top: 0
+				left: 0
+	&__line
+		position: absolute
+		top: 0
+		left: 0
+		width: 1px
+		height: calc(100% + 3px)
+		border-radius: 50px
+		opacity: 0.4
+		background: #8c1f95
+		transform: translateX(1px)
+		transition: all 0.3s ease-in-out
+	&__number
+		+muller(reg)
+		color: #fff
+		+rfs(12)
+		letter-spacing: 1px
+		white-space: nowrap
+
+		transition: all 0.2s ease-in-out
+		opacity: 0.3
+		position: absolute
+		top: 50%
+		transform: translate(14px, -50%)
+	&__name
+		+muller(lt)
+		color: #fff
+		+rfs(13)
+		letter-spacing: 0.5px
+		white-space: nowrap
+		transition: opacity 0.2s ease-in-out
+		transition-delay: 0.2s
+		opacity: 0
+		pointer-events: none
+		position: absolute
+		top: 50%
+		left: 13px
+		transform: translateY(-50%)		
+	&.dark
+		.fixed-nav__number, 
+		.fixed-nav__name
+			color: #495163
+			+muller(bold)
+.fixed-logo
+	padding-top: 2vw
+	padding-left: 2.4%
+	position: fixed
+	transition: all 0.7s
+	z-index: 10
+	cursor: pointer
+	opacity: 0
+	pointer-events: none
+	&.is-visible
+		opacity: 1
+		pointer-events: auto
+
+
+// Perlin Noise
+.noise-btn
+	display: block
+	position: relative
+	background: transparent
+	border: none
+	cursor: pointer
+	opacity: 0
+	&.canvas-ready
+		opacity: 1
+	span
+		display: flex
+		flex-flow: row wrap
+		justify-content: center
+		align-items: center
+
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+.noise-container
+	display: block
+	position: relative
+.noise-canvas
+	position: absolute
+	top: -24px
+	left: -24px
+	width: calc(100% + 40px)
+	height: 100%
+	pointer-events: none
+
+.noise
+	z-index: 1
+	position: fixed
+	top: 0
+	left: 0
+	width: 100vw
+	height: 100vh
+	pointer-events: none
+	opacity: 0.1
+	&.last
+		opacity: 0.03
+
+
+// Anim
+#webgl-output
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	pointer-events: none
+	canvas
+		width: 100%
+		height: 100%
+		display: block
+	&.is-active
+		z-index: 8
+		&::before
+			opacity: 1
+	&::before
+		position: fixed
+		content: ''
+		top: 0
+		left: 
+		width: 100%
+		height: 100%
+		background: linear-gradient(to right, #090025 0%,#2f0028 100%)
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#090025', endColorstr='#2f0028',GradientType=1 )
+		z-index: -1
+		opacity: 0
+		transition: 0.2s ease-in-out
+@keyframes border
+	0%
+		border-bottom: 1px solid #7c167f
+	25%
+		border-bottom: 1px solid #7c167f
+		border-right: 1px solid #7c167f
+	50%
+		border-bottom: 1px solid #7c167f
+		border-right: 1px solid #7c167f
+		border-top: 1px solid #7c167f
+	75%
+		border-bottom: 1px solid #7c167f
+		border-right: 1px solid #7c167f
+		border-top: 1px solid #7c167f
+		border-left: 1px solid #7c167f
+	100%
+		border: 1px solid #7c167f
+@keyframes circleIn1
+	0%
+		stroke-dashoffset: 570
+	100%
+		stroke-dashoffset: 0
+		transform: rotate(0)
+@keyframes mouseoverAnim
+	0%
+		stroke-dasharray: 1
+		stroke-dashoffset: 0
+	100%
+		stroke-dasharray: 3
+		stroke-dashoffset: 0
+		transform: rotate(0)
+.header-glitch
+	animation-name: glText
+	animation-duration: 3s
+	animation-timing-function: linear
+	animation-iteration-count: 1
+	animation-delay: 0s
+	animation-direction: forwards
+
+
+// Basic
+#sections
+	transition: all 0.4s ease-in-out
+	&.is-hidden
+		opacity: 0
+		pointer-events: none
+.fluid
+	&--center
+		width: 100%
+		min-height: 100vh
+		display: flex
+		align-items: center
+		justify-content: center
+	&--px
+		min-height: 700px
+	&--news
+		margin-bottom: 5em
+.section
+	position: relative
+	overflow: hidden
+	&-header
+		white-space: nowrap
+	&-description
+		opacity: 0
+		transform: translateY(40%)
+	&-padding
+		display: block
+		width: 100%
+		height: 5em
+		background: transparent
+	&--request
+		background: #f3f3f3
+		min-height: 100vh
+		.section-padding
+			height: 6em
+	&-about
+		.next-particle-canvas
+			transform: translate(10%, -10%)
+	&-versus
+		.next-particle-canvas
+			transform: translate(15%, 5%)
+		.fluid--px
+			overflow: hidden
+	&-chat
+		overflow: hidden
+		padding-top: 30px
+		.next-particle-canvas
+			transform: translate(0, 0)
+		.section-padding
+			height: 20vh
+			max-height: 100px
+.header
+	padding-top: 2.6%
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	z-index: 1
+	&__inner
+		display: flex
+		align-items: center
+		justify-content: space-between
+		width: 100%
+	&__logo
+		display: block
+		width: 8.67em
+		+rfs(30)
+		margin-right: auto
+		transition: all 0.2s ease-in-out
+	nav
+		flex: 1
+
+		// todo: width, padding
+		padding-left: 2vw
+		// padding-right: 2vw
+		padding-right: 4vw
+		max-width: 45vw
+	&__nav
+
+		display: flex
+		align-items: center
+		justify-content: space-between
+		li
+			display: inline-block
+			// margin-left: 3vw
+			white-space: nowrap
+			cursor: pointer
+			position: relative
+			height: 40px !important
+			transform: translateY(10px)
+			&:hover
+				span
+					transform-origin: left center
+					transform: scale(1)
+			span
+				content: ''
+				position: absolute
+				bottom: 0px
+				left: 0
+				width: 100%
+				display: inline-block
+				height: 2px
+				background: #f3f2ff
+				transition: all .4s cubic-bezier(.165,.84,.44,1)
+				transform-origin: left center
+				transform: scaleX(0)
+			a
+				color: #f3f2ff
+				white-space: nowrap
+				text-transform: uppercase
+				font-size: 12px
+				letter-spacing: 0.3em
+				display: block
+				min-height: 40px
+	&__login
+		border: none
+		background: transparent
+		padding: 1px 6px
+
+		+rfs(17)
+		width: 3.5em
+		height: 3.5em
+		svg
+			width: 100%
+			height: 100%
+		&:hover
+			path.login-svg
+				stroke: #8c1f95
+				animation: circleIn1 1s cubic-bezier(.645,.045,.355,1) forwards
+			line.login-svg
+				transform: translateX(8px)
+		&.is-hidden
+			display: none
+	&__logout
+		border: none
+		background: transparent
+
+		+rfs(17)
+		width: 3.5em
+		height: 3.5em
+		svg
+			transform: translateY(1px)
+			width: 70%
+			height: 70%
+			path, line
+				transition: all 0.2s ease-in-out
+				transform-origin: 50% 50%
+		&:hover
+			path.logout-svg
+				stroke: #8c1f95
+				animation: circleIn1 1s cubic-bezier(.645,.045,.355,1) forwards
+			line.logout-svg
+				transform: translateY(6px)
+		&.is-hidden
+			display: none
+
+	&.is-hidden
+		display: none
+.main
+	position: relative
+	&__year
+		color: #631c6a
+		+clarke
+		+rfs(294)
+		line-height: 1.1
+
+		position: relative
+		margin: 0 auto
+	&__header
+		+muller(md)
+		+rfs(90)
+		color: #dddbfe
+		line-height: 1
+		letter-spacing: 0.4em
+		z-index: 1
+		text-transform: uppercase
+
+		display: flex
+		flex-direction: row
+		align-items: center
+		justify-content: space-between
+		white-space: nowrap
+
+		position: absolute
+		bottom: 50%
+		left: 50%
+		transform: translate(-50%, 100%)
+	&__desc
+		color: #d2cfff
+		+rfs(24)
+		margin: 3em auto 2.3em auto
+		max-width: 28em
+
+		opacity: 0
+		transform: translateY(40%)
+	&__btn
+		border: none
+		background: transparent
+		margin: 0 auto
+		width: 18.2em
+		height: 4.4em
+
+		+rfs(16)
+		+muller(bold)
+		color: #d2cfff
+		text-transform: uppercase
+		letter-spacing: 3.2px
+
+		opacity: 0
+		transform: translateY(40%)
+		&:hover, &:focus, &:visited, &:active
+			color: #d2cfff
+		a
+			color: #d2cfff
+			&:hover, &:focus, &:visited, &:active
+				color: #d2cfff
+.int-canvas
+	width: 768px
+	height: 768px
+	// width: 30vw
+	// height: 30vw
+	// min-width: 400px
+	// min-height: 400px
+	&-wrap
+		position: absolute
+		top: 0
+		left: 0
+		display: flex
+		align-items: center
+		justify-content: center
+		width: 50%
+		&--brain
+			height: 100vh
+		&--cup, &--chat
+			height: 700px
+	&--brain
+		transform: translate(5vw, 0) scale(1.5)
+		// transform: translate(5vw, 0)
+	&--cup
+		transform: translate(10vw, 0) scale(1.5)
+		// transform: translate(10vw, 0)
+	&--chat
+		transform: scale(1.5)
+.login-svg
+	fill: none
+	stroke: #fff
+	stroke-width: 3
+	stroke-linecap: round
+	stroke-linejoin: bevel
+	stroke-miterlimit: 10
+	transition: all 0.2s ease-in-out
+	transform-origin: 50% 50%
+path.login-svg, path.logout-svg
+	stroke-dasharray: 570
+	stroke-dashoffset: 570
+	animation: mouseoverAnim 1.2s cubic-bezier(.785,.135,.15,.86) forwards
+.logout-svg
+	fill: none
+	stroke: #fff
+	stroke-width: 3
+	stroke-linecap: round
+	stroke-linejoin: bevel
+	stroke-miterlimit: 10
+.lang
+	margin-right: 3vw
+	&__btn
+		position: relative
+		border: none
+		background: transparent
+		font-size: 12px
+		color: #f3f2ff
+		text-transform: uppercase
+		width: 30px
+		height: 30px
+		padding: 0
+		&::before, &::after
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -55%) scale(0)
+			content: ''
+			display: block
+			border-radius: 50%
+			transition: 0.2s ease-in-out
+		&::before
+			border: 1px solid #b836c6
+			width: 30px
+			height: 30px
+		&::after
+			border: 1px solid #631c6a
+			width: 42px
+			height: 42px
+			transition-delay: 0.05s
+		&:hover
+			&::before, &::after
+				transform: translate(-50%, -55%) scale(1)
+		&.is-active
+			&::before, &::after
+				transform: translate(-50%, -55%) scale(1)
+		&--ru
+			margin-right: 10px
+
+
+@keyframes glText
+  0%
+    transform: translate3d(-10px, 0, 0) scale3d(-1, -1, 1)
+    clip-path: polygon(0 20%, 100% 20%, 100% 21%, 0 21%)
+  2%
+    clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%)
+  4%
+    clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%)
+  5%
+    clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%)
+  6%
+    clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%)
+  7%
+    clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%)
+  8%
+    clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%)
+  9%
+    clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%)
+  9.9%
+    transform: translate3d(-10px, 0, 0) scale3d(-1, -1, 1)
+  10%,
+  100%
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1)
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%)
+
+// About
+.placeholder
+	display: block
+	width: 50%
+	height: 300px
+	background: rgba(teal, 0.3)
+	background: transparent
+.about
+	width: 50%
+	&__info
+		+left-line
+	&__header
+		line-height: 1.4
+		// margin-bottom: 1em
+		margin-bottom: 0.8em
+		display: inline-block
+		.br-2
+			display: none
+	&__subheader
+		margin-top: 1.2em
+		margin-bottom: 1.2em
+	&__text
+		line-height: 2
+		max-width: 30em
+
+
+// Prizes
+.prizes
+	display: flex
+	align-items: flex-start
+	justify-content: space-around
+	flex-wrap: wrap
+
+	width: 100%
+	// max-width: 1300px
+	max-width: 90%
+	margin: 4.1em auto 12em auto
+.prize
+	display: flex
+	flex-direction: column
+	align-items: center
+	justify-content: flex-start
+	margin: 0 0.5em 2em 0.5em
+	&-header
+		color: #631c6a
+		+clarke
+		+rfs(200)
+		line-height: 1.1
+		margin-bottom: 0.3em
+		&__text
+			+muller(md)
+			+rfs(60)
+			color: #e0e6ff
+			line-height: 1
+			margin-bottom: 0 
+			letter-spacing: 7.71px
+			text-transform: uppercase
+			transform: translateY(-110%)
+			position: relative
+			z-index: 1
+	&-desc
+		+muller(reg)
+		+rfs(16)
+		text-transform: uppercase
+		letter-spacing: 3.2px
+		color: #d2cfff
+		span
+			+muller(bold)
+	&__ring
+
+		width: 163px
+		height: 163px
+
+		position: relative
+		display: flex
+		align-items: center
+		justify-content: center
+		flex-direction: column
+
+		line-height: 1
+		color: #dbd9fc
+		+muller(lt)
+		+rfs(14)
+		&.anim
+			span
+				opacity: 1
+			.prize__ring-outer
+				transform: scale(1)
+			&::before, &::after
+				transform: translate(-50%, -50%) scale(1)
+
+		&-outer
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			border-radius: 50%
+			border: 1px solid #2a355e
+			transition: all 0.3s ease-in-out
+			transition-delay: 0.3s
+			transform: scale(0)
+		&::before, &::after
+			content: ''
+			display: block
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%) scale(0)
+			transition: all 0.3s ease-in-out
+
+			border-radius: 50%
+			border: 1px solid #6284de
+		&::before
+			opacity: 0.6
+			width: 80%
+			height: 80%
+			transition-delay: 0.2s
+		&::after
+			opacity: 1
+			width: 60%
+			height: 60%
+			transition-delay: 0.1s
+		span
+			display: block
+			color: #dddbfe
+			line-height: 1
+			+rfs(45)
+			+mont
+
+			opacity: 0
+			transition: 0.3s ease-in-out
+			transition-delay: 0.4s
+	&:last-child .prize__ring span
+		+rfs(30)
+	&__eth
+		+geo
+		+rfs(21)
+		color: #fff
+		letter-spacing: 4.2px
+		line-height: 1
+		margin-top: 32px
+		margin-bottom: 14px
+
+		opacity: 0
+		transform: translateY(40%)
+	&__rub
+		+geo
+		+rfs(16)
+		color: #5e7ed5
+		letter-spacing: 3.2px
+		line-height: 1
+
+		opacity: 0
+		transform: translateY(40%)
+
+
+// Cover, List
+.cover
+	background-image: linear-gradient(90deg, #18112e 0%, #321635 100%)
+	padding: 4em 0 4em 0
+	opacity: 1
+	&-wrap
+		padding: 4em 5.5em 5.5em 0
+		overflow-x: hidden
+		max-width: 70%
+		background: url(../img/lines.png) no-repeat center right
+		background-size: contain
+		&--right
+			max-width: 75%
+			margin-left: auto
+			padding: 4em 0 5.5em 5.5em
+			background: url(../img/lines.png) no-repeat center left
+			background-size: contain
+			.cover
+				// padding: 4em 0 4em 6em
+				padding: 4em 0 5.6em 6em
+		&--voting
+			margin-top: 11em
+	&__header
+		// margin-bottom: 1em
+		margin-bottom: 0.8em
+		display: inline-block
+.list
+	max-width: 41em
+	padding-left: 5em
+	&__item
+		position: relative
+		vertical-align: middle
+		min-height: 44px
+
+		padding-left: 75px
+		margin-bottom: 30px
+		&:last-child
+			margin-bottom: 0
+			min-height: auto
+	&__text
+		display: inline
+		vertical-align: middle
+	&__ring
+		position: absolute
+		top: 0
+		left: 0
+		display: inline-flex
+		align-items: center
+		justify-content: center
+		vertical-align: middle
+		transform: translateY(-11px)
+
+		width: 44px
+		height: 44px
+		border-radius: 50%
+		border: 1px solid #5e156f
+
+		+mont
+		color: #dddbfe
+		+rfs(14)
+		&::before
+			content: ''
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+			border-radius: 50%
+			width: 80%
+			height: 80%
+			border: 1px solid #9c19af
+	&--right
+		padding-left: 0
+		max-width: 47em
+		.list__item
+			min-height: auto
+			+left-line
+
+
+// Versus
+.versus
+	position: relative
+	&__header
+		color: #631c6a
+		+clarke
+		// +rfs(327)
+		// line-height: 1.1
+		// margin-bottom: 0.3em
+		// .section-header--up
+		// 	display: none
+		&-text
+			+muller(md)
+			+rfs(52)
+			color: #e0e6ff
+			letter-spacing: 0
+			display: inline-block
+			margin-bottom: 16px
+			// +rfs(60)
+			// letter-spacing: 9.55px
+			// line-height: 1
+			// margin-bottom: 0
+			// text-transform: uppercase
+			z-index: 1
+			position: relative
+			// &:nth-child(2)
+			// 	transform: translate(-109px, -275%)
+			&:nth-child(3)
+				margin-left: 0.3em
+			// 	transform: translate(8%, -270%)
+	&__desc
+		line-height: 2
+		max-width: 36em
+		// margin-left: -109px
+		+left-line
+
+
+// Examples
+.line
+	display: block
+	margin: 0 auto
+	width: 78px
+	height: 2px
+	background: #7c167f
+.examples
+	&-header
+		text-transform: uppercase
+		line-height: 1
+		margin-bottom: 0.75em
+		br
+			display: none
+		& + span
+			margin-bottom: 2em
+	&-desc
+		margin: 0 auto
+		max-width: 30em
+		line-height: 2
+		&:last-child
+			margin-bottom: 5em
+.example
+	position: relative
+	display: flex
+	flex-direction: row
+	align-items: center
+	justify-content: space-between
+	margin-bottom: 2.9em
+	&__img
+		width: 23em
+		height: 31.7em
+		position: relative
+		background-repeat: no-repeat
+		background-position: center center
+		background-size: cover
+		&::before
+			position: absolute
+
+			content: ''
+			display: block
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+
+			z-index: 1
+			// top: calc(-1 * var(--gap-vertical))
+			// left: calc(-1 * var(--gap-horizontal))
+			// width: calc(100% + var(--gap-horizontal) * 2)
+			// height: calc(100% + var(--gap-vertical) * 2)
+
+			background: linear-gradient(to left, rgba(#583991, 1) 0%, rgba(#223991, 1) 100%)
+			mix-blend-mode: hard-light
+	&-4
+		margin-bottom: 0
+	&-wrap
+		padding: 3em 0 0 5em
+		background: url(../img/lines.png) no-repeat top left
+		background-size: 20em
+		margin: 0 auto
+		max-width: 67.3em // 1170px
+		&--right
+			padding: 3em 5em 0 0
+			background: url(../img/lines.png) no-repeat top right
+			background-size: 20em
+			.example
+				padding-left: 5em
+				&__img
+					order: 1
+					min-width: 23em
+	&__info
+		z-index: 2
+		&.absolute
+			position: absolute
+			top: 50%
+			left: 23em
+			transform: translate(-54.5px, -75%)
+	&__name
+		line-height: 1.5
+		margin-bottom: 1.2em
+		max-width: 16em
+	&__link
+		position: relative
+		+rfs(14)
+		+muller(bold)
+		color: #d2cfff
+		text-transform: uppercase
+		letter-spacing: 2.8px
+		padding-left: 132px
+		height: 20px
+		display: block
+
+		transition: all 0.2s
+		&:hover
+			color: rgba(#d2cfff, 0.8)
+			&::after
+				transform: translateX(10px)
+		&::before, &::after
+			content: ''
+			display: block
+			width: 109px
+			height: 2px
+			background: #b836c6
+			position: absolute
+			top: 8px
+			left: 0
+
+			transition: all 0.2s ease-in-out
+	&__desc
+		margin-top: 4.3em
+		max-width: 17em
+
+.examples
+	position: relative
+
+
+
+// Chat, News
+.chat
+	width: 50%
+	&__header
+		// margin-bottom: 1em
+		margin-bottom: 0.8em
+		display: inline-block
+	&__desc
+		max-width: 36em
+		margin-bottom: 3.3em
+		+left-line
+	&__btn
+		text-transform: uppercase
+		letter-spacing: 2.8px
+		color: #dde3fb
+		+muller(bold)
+		+rfs(14)
+		display: inline-block
+		// width: 22em
+		width: 18em
+		height: 4.4em
+		&--slack
+			margin-left: 3em
+		a
+			color: #dde3fb
+			&:hover, &:focus, &:visited, &:active
+				color: #dde3fb
+		svg
+			transform: translate(10px, -2px)
+			fill: #b836c6
+		span
+			left: -4px
+		canvas
+			top: -22px
+			left: -22px
+.news
+	display: flex
+	flex-direction: row
+	align-items: center
+	&__info
+		margin-right: 2.9em
+	&__header
+		// margin-bottom: 1em
+		margin-bottom: 0.8em
+		display: inline-block
+	&__desc
+		width: 32em		
+		margin-bottom: 2.3em
+		+left-line
+
+		opacity: 0
+		transform: translateY(40%)
+	&__social
+		display: flex
+		flex-direction: row
+		align-items: center
+		justify-content: flex-start
+		padding-left: 109px
+		&-link
+			width: 46px
+			height: 46px
+			margin-right: 50px
+			border-radius: 50%
+			position: relative
+			display: flex
+			align-items: center
+			justify-content: center
+			&:hover
+				&::before
+					transform: rotate(180deg)
+					opacity: 0
+				svg
+					transform: scale(1.1)
+			&::before
+				content: ''
+				position: absolute
+				top: 0
+				left: 0
+				width: 46px
+				height: 46px
+				border-radius: 50%
+				border: 2px solid #b836c6
+				border-right: 2px solid transparent
+				transform: rotate(0)
+				opacity: 1
+				transition: all 0.2s ease-in-out
+			svg
+				fill: #fff
+				backface-visibility: hidden
+				transition: all 0.4s ease-in-out
+			span
+				position: absolute
+				top: 16px
+				right: 0
+				transform: translateX(80%)
+				color: #d2cfff
+				+muller(bold)
+				+rfs(10)
+				text-transform: uppercase
+				letter-spacing: 2px
+	&__images
+		display: flex
+		align-items: center
+		flex-direction: row
+		justify-content: space-between
+
+		transform: translateX(100%)
+	&__img
+		margin-right: 2.9em
+		min-width: 27.6em
+		height: auto
+		position: relative
+		img
+			object-fit: cover
+			width: 100%
+			height: 100%
+		&:hover
+			&::after
+				opacity: 1
+			.news__img-tip
+				opacity: 1
+		&-header
+			position: absolute
+			top: 30px
+			left: 30px
+			padding-right: 30px
+			display: block
+			z-index: 2
+			color: #fff
+			+rfs(24)
+			+muller(md)
+
+			max-height: 80%
+			overflow: hidden
+		&-tip
+			position: absolute
+			bottom: 20px
+			right: 20px
+
+			+rfs(18)
+			color: #fff
+			opacity: 0
+			transition: all 0.3s ease-in-out
+			z-index: 3
+			&::before
+				content: ''
+				position: absolute
+				bottom: 0
+				left: 0
+				width: 100%
+				height: 1px
+				background: #7c167f
+		&::before
+			content: ''
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+
+			transition: all 0.3s ease-in-out
+			z-index: 2
+			background: linear-gradient(to left, rgba(#583991, 1) 0%, rgba(#223991, 1) 100%)
+			mix-blend-mode: hard-light
+			opacity: 1
+
+		&::after
+			position: absolute
+			content: ''
+			width: 100%
+			height: 100%
+			top: 0
+			left: 0
+			opacity: 0.6
+			z-index: 1
+			transition: all 0.3s ease-in-out
+			background: rgba(#000, 0.4)
+	&-buttons
+		position: relative
+		z-index: 1
+		display: inline-flex
+		flex-direction: row
+		align-items: center
+		justify-content: center
+		margin-bottom: 1em
+
+		opacity: 0
+	&-btn
+		margin-left: 1em
+		margin-right: 1em
+		border: none
+		background: transparent
+		svg
+			width: 80px
+			height: 50px
+		&-prev
+			transform: scale(-1, 1)
+		&:first-child
+			margin-left: 0
+		&:focus
+			outline: none
+		&:hover
+			.news-btn-svg-ring
+				animation: circleIn1 1s cubic-bezier(.645,.045,.355,1) forwards
+			.news-btn-svg-line
+				transform: translate(10px, 0)
+		&-svg
+			fill: none
+			stroke: #fff
+			stroke-width: 3
+			stroke-linecap: round
+			stroke-linejoin: bevel
+			stroke-miterlimit: 10
+
+			transition: all 0.2s ease-in-out
+			&-ring
+				stroke: #af33bc
+				transform-origin: 50% 50%
+				stroke-dasharray: 570
+				stroke-dashoffset: 570
+				animation: mouseoverAnim 1.2s cubic-bezier(.785,.135,.15,.86) forwards
+
+
+.effect-2
+	--gap-horizontal: 10px
+	--gap-vertical: 5px
+	--time-anim: 2s
+	--delay-anim: 0s
+	--blend-mode-1: none
+	--blend-mode-2: none
+	--blend-mode-3: none
+	--blend-mode-4: none
+	--blend-mode-5: overlay
+	--blend-color-1: transparent
+	--blend-color-2: transparent
+	--blend-color-3: transparent
+	--blend-color-4: transparent
+	--blend-color-5: #af4949
+.glitch
+  overflow: hidden
+  position: relative
+  background-repeat: no-repeat
+  background-position: 50% 50%
+  background-size: cover
+.glitch__img
+  background-repeat: no-repeat
+  background-position: 50% 50%
+  background-size: cover
+  position: absolute
+
+  // top: calc(-1 * var(--gap-vertical))
+  // left: calc(-1 * var(--gap-horizontal))
+  // width: calc(100% + var(--gap-horizontal) * 2)
+  // height: calc(100% + var(--gap-vertical) * 2)
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+
+  background-color: var(--blend-color-1)
+  transform: translate3d(0, 0, 0)
+  background-blend-mode: var(--blend-mode-1)
+  &:nth-child(n+2)
+    opacity: 0
+.glitch--animate .glitch__img
+  &:nth-child(n+2)
+    animation-duration: var(--time-anim)
+    animation-delay: var(--delay-anim)
+    animation-timing-function: linear
+    animation-iteration-count: infinite
+    animation-fill-mode: forwards
+  &:nth-child(2)
+    background-color: var(--blend-color-2)
+    background-blend-mode: var(--blend-mode-2)
+    animation-name: glitch-anim-1
+  &:nth-child(3)
+    background-color: var(--blend-color-3)
+    background-blend-mode: var(--blend-mode-3)
+    animation-name: glitch-anim-2
+  &:nth-child(4)
+    background-color: var(--blend-color-4)
+    background-blend-mode: var(--blend-mode-4)
+    animation-name: glitch-anim-3
+  &:nth-child(5)
+    background-color: var(--blend-color-5)
+    background-blend-mode: var(--blend-mode-5)
+    animation-name: glitch-anim-flash
+@keyframes glitch-anim-1
+  0%, 100%
+    opacity: 1
+    transform: translate3d(var(--gap-horizontal), 0, 0) scale3d(-1, -1, 1)
+    clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%)
+
+  20%
+    clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%)
+
+  30%
+    clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%)
+
+  40%
+    clip-path: polygon(0 1%, 100% 1%, 100% 2%, 0 2%)
+
+  50%
+    clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%)
+
+  55%
+    clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%)
+
+  60%
+    clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%)
+
+  65%
+    clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%)
+
+  70%
+    clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%)
+
+  80%
+    clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%)
+
+  85%
+    clip-path: polygon(0 60%, 100% 60%, 100% 65%, 0 65%)
+
+  95%
+    clip-path: polygon(0 72%, 100% 72%, 100% 78%, 0 78%)
+@keyframes glitch-anim-2
+  0%, 100%
+    opacity: 1
+    transform: translate3d(calc(-1 * var(--gap-horizontal)), 0, 0)
+    clip-path: polygon(0 25%, 100% 25%, 100% 30%, 0 30%)
+
+  10%
+    clip-path: polygon(0 3%, 100% 3%, 100% 3%, 0 3%)
+
+  15%
+    clip-path: polygon(0 5%, 100% 5%, 100% 20%, 0 20%)
+
+  17%
+    clip-path: polygon(0 20%, 100% 20%, 100% 20%, 0 20%)
+
+  19%
+    clip-path: polygon(0 40%, 100% 40%, 100% 40%, 0 40%)
+
+  33%
+    clip-path: polygon(0 52%, 100% 52%, 100% 59%, 0 59%)
+
+  35%
+    clip-path: polygon(0 60%, 100% 60%, 100% 60%, 0 60%)
+
+  40%
+    clip-path: polygon(0 75%, 100% 75%, 100% 75%, 0 75%)
+
+  45%
+    clip-path: polygon(0 65%, 100% 65%, 100% 40%, 0 40%)
+
+  49%
+    clip-path: polygon(0 45%, 100% 45%, 100% 50%, 0 50%)
+
+  50%
+    clip-path: polygon(0 14%, 100% 14%, 100% 33%, 0 33%)
+
+  55%
+    clip-path: polygon(0 15%, 100% 15%, 100% 35%, 0 35%)
+
+  60%
+    clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%)
+
+  70%
+    clip-path: polygon(0 65%, 100% 65%, 100% 60%, 0 60%)
+
+  80%
+    clip-path: polygon(0 80%, 100% 80%, 100% 85%, 0 85%)
+
+  90%
+    clip-path: polygon(0 55%, 100% 55%, 100% 65%, 0 65%)
+@keyframes glitch-anim-3
+  0%, 100%
+    opacity: 1
+    transform: translate3d(0, calc(-1 * var(--gap-vertical)), 0) scale3d(-1, -1, 1)
+    clip-path: polygon(0 1%, 100% 1%, 100% 3%, 0 3%)
+
+  5%
+    clip-path: polygon(0 10%, 100% 10%, 100% 9%, 0 9%)
+
+  11%
+    clip-path: polygon(0 5%, 100% 5%, 100% 6%, 0 6%)
+
+  20%
+    clip-path: polygon(0 20%, 100% 20%, 100% 20%, 0 20%)
+
+  25%
+    clip-path: polygon(0 10%, 100% 10%, 100% 10%, 0 10%)
+
+  35%
+    clip-path: polygon(0 30%, 100% 30%, 100% 25%, 0 25%)
+
+  42%
+    clip-path: polygon(0 15%, 100% 15%, 100% 16%, 0 16%)
+
+  48%
+    clip-path: polygon(0 40%, 100% 40%, 100% 39%, 0 39%)
+
+  50%
+    clip-path: polygon(0 20%, 100% 20%, 100% 21%, 0 21%)
+
+  56%
+    clip-path: polygon(0 60%, 100% 60%, 100% 55%, 0 55%)
+
+  61%
+    clip-path: polygon(0 30%, 100% 30%, 100% 31%, 0 31%)
+
+  68%
+    clip-path: polygon(0 70%, 100% 70%, 100% 69%, 0 69%)
+
+  72%
+    clip-path: polygon(0 40%, 100% 40%, 100% 41%, 0 41%)
+
+  77%
+    clip-path: polygon(0 80%, 100% 80%, 100% 75%, 0 75%)
+
+  81%
+    clip-path: polygon(0 50%, 100% 50%, 100% 51%, 0 51%)
+
+  86%
+    clip-path: polygon(0 90%, 100% 90%, 100% 90%, 0 90%)
+
+  90%
+    clip-path: polygon(0 60%, 100% 60%, 100% 60%, 0 60%)
+
+  92%
+    clip-path: polygon(0 100%, 100% 100%, 100% 99%, 0 99%)
+
+  94%
+    clip-path: polygon(0 70%, 100% 70%, 100% 71%, 0 71%)
+@keyframes glitch-anim-flash
+  0%, 5%
+    opacity: 0.2
+    transform: translate3d(var(--gap-horizontal), var(--gap-vertical), 0)
+
+  5.5%, 100%
+    opacity: 0
+    transform: translate3d(0, 0, 0)
+
+// Request, footer
+.request
+	color: #495163
+	display: flex
+	flex-direction: row
+	align-items: flex-start
+	justify-content: space-between
+	margin-bottom: 1.7em
+	&.anim
+		animation: fadeUp 0.8s ease-in-out 0.2s 1 backwards
+	&__info
+		width: 50%
+		padding-left: 8vw
+		padding-right: 20px
+		&-header, &-subheader
+			color: #495163
+		&-header
+			// margin-bottom: 1em
+			margin-bottom: 0.8em
+			display: inline-block
+			padding-left: 8vw
+		&-subheader
+			// margin-bottom: 1.8em
+			margin-bottom: 1.44em
+			+muller(bold)
+	&__list
+		margin-bottom: 2.3em
+		&-item
+			line-height: 1.8
+			+rfs(16)
+			max-width: 36.8em
+			padding-left: 28px
+			position: relative
+			margin-bottom: 2.2em
+			a
+				color: #b836c6
+			&:last-child
+				margin-bottom: 0
+			&::before
+				content: ''
+				width: 11px
+				height: 11px
+				display: block
+				background: url(../img/2arrow.png) no-repeat center
+				background-size: cover
+				position: absolute
+				top: 5px
+				left: 0
+	&__btn
+		width: 200px
+		height: 4.4em
+		color: #495163
+		+muller(bold)
+		text-transform: uppercase
+		letter-spacing: 2.8px
+		&:hover, &:focus, &:visited, &:active
+			color: #495163
+		a
+			color: #495163
+			&:hover, &:focus, &:visited, &:active
+				color: #495163
+	
+	&__form
+		width: 50%
+		height: 100%
+		display: flex
+		flex-direction: column
+		align-items: flex-start
+		justify-content: flex-start
+		padding-left: 5.8em
+		padding-right: 8vw
+		padding-bottom: 4.8em
+		border-left: 1px solid #dddcde
+		&-header
+			+muller(md)
+			+rfs(21)
+			letter-spacing: 0.53px
+			margin-top: 1.7em
+			margin-bottom: 0.5em
+		&-member
+			border: none
+			background: transparent
+			margin-bottom: 2.9em
+			&:focus
+				outline: none
+			span
+				display: inline-block
+				vertical-align: middle
+				margin-right: 14px
+				width: 26px
+				height: 26px
+				border-radius: 50%
+				border: 1px solid #b836c6
+				border-right: 1px solid transparent
+				position: relative
+
+				&::before, &::after
+					transition: all 0.2s ease-in-out
+					content: ''
+					position: absolute
+					top: 50%
+					left: 50%
+					transform: translate(-50%, -50%)
+					display: block
+					background: #b836c6
+				&::before
+					width: 7px
+					height: 1px
+				&::after
+					width: 1px
+					height: 7px
+				&:hover
+					&::before, &::after
+						transform: translate(-50%, -50%) rotate(135deg)
+			b
+				+muller(reg)
+				color: #b836c6
+				+rfs(16)
+				letter-spacing: 1.6px
+				position: relative
+				display: inline-block
+				vertical-align: middle
+				overflow: hidden
+				&:hover::before
+					transform: translateX(0)
+				&::before
+					content: ''
+					position: absolute
+					bottom: 0
+					left: 0
+					display: block
+					width: 100%
+					height: 1px
+					background: #b836c6
+					transition: all 0.2s ease-in-out
+					transform: translateX(-100%)
+		&-btn
+			width: 16.7em
+			height: 4.4em
+			min-width: 16.7em
+			min-height: 4.4em
+			span
+				text-transform: uppercase
+				+muller(bold)
+				+rfs(14)
+				letter-spacing: 2.8px
+			canvas
+				top: -22px
+				left: -22px
+			&:hover, &:focus, &:visited, &:active
+				color: #495163
+			a
+				color: #495163
+				&:hover, &:focus, &:visited, &:active
+					color: #495163
+		&-sign
+			margin-top: 2em
+			+muller(md)
+			display: none
+	&__group
+		width: 100%
+		margin-bottom: 1em
+		&:first-child
+			input
+				padding-top: 0
+		&-input
+			position: relative
+			&.clicked
+				span
+					transform: scale(0.82) translateY(-240%)
+				span.top
+					transform: scale(0.82) translateY(-100%)
+			span
+				position: absolute
+				top: 50%
+				transform: translateY(calc(-50% - 12px))
+				transform-origin: 0 0
+				transition: all 0.2s ease
+				pointer-events: none
+
+				+rfs(16)
+				color: #495163
+				&.top
+					top: 0
+					transform: translateY(20%)
+		&--mb
+			margin-top: 20px
+		&--num
+			position: relative
+	&__input
+		border: none
+		border-bottom: 1px solid #9ea2ab
+		padding-top: 12px
+		padding-bottom: 12px
+		margin-bottom: 11px
+		width: 100%
+		background: transparent
+		+rfs(16)
+		transition: all 0.2s ease-in-out
+		color: #8c1f95
+		&:focus
+			outline: none
+			border-bottom-color: #8c1f95
+	&__member
+		width: 100%
+		padding-left: 30px
+	&__label
+		color: #9ea2ab
+		+muller(reg)
+		+rfs(16)
+		letter-spacing: 0.4px
+		cursor: pointer
+		
+		padding-left: 42px
+		margin-bottom: 3.2em
+		width: 100%
+		height: 29px
+		background: url(../img/svg/checkbox.svg) no-repeat
+		background-size: 29px 29px
+		position: relative
+		img
+			position: absolute
+			top: 50%
+			left: 9px
+			transform: translate(0, -40%)
+			width: 12px
+			height: 9px
+			transition: all 0.2s ease-in-out
+			opacity: 0
+		span
+			position: relative
+			top: 5px
+		input
+			opacity: 0
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			&:checked + img
+				opacity: 1
+	&__textarea
+		border: none
+		border-bottom: 1px solid #9ea2ab
+		padding-top: 12px
+		padding-bottom: 12px
+		margin-bottom: 11px
+		width: 100%
+		background: transparent
+		+rfs(16)
+		transition: all 0.2s ease-in-out
+		color: #8c1f95
+		resize: vertical
+		&:focus
+			outline: none
+			border-bottom-color: #8c1f95
+
+	// page-request
+	&-header
+		&__title
+			margin-bottom: 0.75em
+		&__desc
+			max-width: 36em
+			padding-left: 3.5em
+
+.member
+	&-num
+		position: absolute
+		top: 0
+		left: 0
+		transform: translate(-30px, 10%)
+		// +muller(md)
+		// +rfs(16)
+		// color: #b836c6
+
+		+muller(md)
+		color: #b836c6
+		+rfs(12)
+		letter-spacing: 1px
+		white-space: nowrap
+	&-delete
+		border: none
+		background: transparent
+		position: absolute
+		width: 22px
+		height: 22px
+		top: 0
+		right: 0
+		transform: translate(30px, 5px)
+		transition: all 0.2s ease-in-out
+		&:hover
+			transform: translate(30px, 5px) scale(0.9)
+		img
+			width: 22px
+			height: 22px
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+
+
+.footer
+	+osnova
+	color: #919191
+	opacity: 0.7
+	+rfs(14)
+	
+	position: absolute
+	bottom: 0
+	left: 0
+	right: 0
+	padding-bottom: 3%
+	pointer-events: auto
+	&__copyright
+		float: left
+		display: inline-block
+		span
+			margin-left: 33px
+	&.is-hidden
+		opacity: 0
+		pointer-events: none
+.developer
+	display: inline-block
+	float: right
+	margin-left: auto
+	color: #919191
+
+
+.pencil
+	position: absolute
+	top: 0
+	left: 0
+	fill: #495163
+	width: 16px
+	height: 16px
+	backface-visibility: hidden
+	transition: all 0.2s ease-in-out
+.filename
+	position: absolute
+	bottom: -2.5em
+	left: 0
+
+.header__nav li.authorized
+	+muller(reg)
+	a
+		color: #799dff
+	span
+		background: #799dff
+.authorized
+	&__name
+		+muller(reg)
+
+input, textarea
+	border-radius: 0
+// Browsers
+.mob
+	#noise.noise
+		display: none
+		visibility: hidden
+	.fixed-nav
+		transform: translateY(-50%)
+		opacity: 1
+	.letter, .prize__ring
+		opacity: 1
+	.prize__ring
+		&::before, &::after
+			transform: translate(-50%, -50%) scale(1)
+		span
+			opacity: 1
+		&-outer
+			transform: scale(1)
+	.prize__eth, .prize__rub
+		opacity: 1
+		transform: translateY(0)
+	.main
+		&__header
+			transform: translate(-50%, 80%)
+		&__desc
+			opacity: 1
+			transform: translateY(10%)
+		&__btn
+			opacity: 1
+	// .about__info, .prize-desc, .versus__desc
+	.section-description
+		opacity: 1
+		transform: translateY(0)
+	.prize-header__text
+		transform: translateY(-210%)
+	.versus__header-text
+		// &:nth-child(2)
+		// 	transform: translate(-109px, -395%)
+		// &:nth-child(3)
+		// 	transform: translate(8%, -390%)
+	.news
+		&-buttons
+			opacity: 1
+		&__images
+			transform: translateX(0)
+		&__desc
+			opacity: 1
+			transform: translateY(0)
+		&__img
+			&::before, span
+				opacity: 1
+	#webgl-output canvas
+		// display: none
+		// opacity: 0
+		// width: 0
+		// height: 0
+		// visibility: hidden
+		// position: absolute
+	
+	.menu-list-item a,
+	.section-header--up,
+	.main__year span,
+	.main__header,
+	.news__header,
+	.section-header,
+
+	.fixed-nav,
+	.header,
+	.section-main .hud--main
+		opacity: 1
+
+	.page-preview, .page-project
+		.preview-info__video-wrap
+			transform: translateY(0)
+			& + .preview-info__header
+				margin-top: 0
+	.page-projects
+		.projects
+			transform: translateY(0)
+		.project
+			opacity: 1
+			transform: translateY(0)
+.ios
+	.request__input, .request__textarea
+		font-size: 16px
+	&.page-preview 
+		.preview__likes-num, .preview__comments-num
+			transform: translateY(12px)
+	&.page-projects
+		.project__comments-num
+			transform: translateY(6px)
+.ie
+	.section-main
+		.fluid--center
+			position: relative
+		.main
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+		.header
+			z-index: 1
+	.example__img::before
+		display: none
+	.request__group-input
+		span
+			transform: translateY(-55%)
+		&.clicked span
+			transform: scale(0.82) translateY(-240%)
+	.header__logo
+		&--single
+			display: flex
+		&--double
+			display: none
+.osx
+	.main__year span
+		transform: translateY(15%)
+		display: inline-block
+
+
+@keyframes fadeDown
+	0%
+		transform: translateY(-100%)
+		opacity: 0
+	100%
+		transform: translateY(0)
+		opacity: 1
+@keyframes fadeUp
+	0%
+		transform: translateY(10vh)
+		opacity: 0
+	100%
+		transform: translateY(0)
+		opacity: 1
+
+// Pages
+.page-main, .page-404
+	.menu
+		display: flex
+		.lang__btn
+				color: #fff
+	.header
+		&__logo
+			&--light
+				display: block
+			&--single, &--double
+				display: none
+		&__nav li
+			&.authorized
+				display: none
+	&::before
+		position: fixed
+		top: 100vh
+		left: 0
+		content: ''
+		width: 100vw
+		height: 100vh
+		display: block
+		background: #fff
+		z-index: 9999
+		transform: translateY(100%)
+		transition: transform 0.6s cubic-bezier(.71,.01,.34,.99)
+	&.leave
+		&::before
+			top: 0
+			transform: translateY(0%)
+.page-404
+	.main__header, .main__btn, .main__desc, .fixed-nav
+		display: none
+	.main__year
+		color: #fff
+	.footer
+		display: none
+	.menu
+		background: #fff
+		height: 100vh
+		.hud-bottom, .hud-timer
+			display: none
+		&-list-item a
+			color: #4d5566
+		.letter
+			opacity: 1
+		.lang__btn
+			color: #4d5566
+	.hamburger.is-active
+		.hamburger-text
+			color: #4d5566
+		.hamburger-inner
+			background: #4d5566
+			&::before, &::after
+				background: #4d5566
+.page-faq
+	+rfs(16)
+	color: #495163
+	background: #fff
+	opacity: 1
+	pointer-events: auto
+	h1
+		margin-bottom: 20px
+		+rfs(52)
+		color: #495163
+		+muller(md)
+	h2
+		+rfs(30)
+		color: #5d6473
+		letter-spacing: 0
+	.header
+		margin-bottom: 2.9em
+		position: fixed
+		background: #fff
+		&.anim
+			animation: fadeDown 0.8s ease-in-out 0.2s 1 backwards
+		&__logo
+			display: flex
+			flex-direction: row
+			align-items: center
+			justify-content: flex-start
+			&--double			
+				img
+					display: block
+					height: auto
+					&:first-child
+						max-width: 38.2%
+					&:last-child
+						max-width: 61.8%
+			&--single
+				display: none
+		nav
+			// todo: width
+			// max-width: 60vw
+			max-width: 55vw
+		&__nav li
+			// margin-right: 4vw
+			&.authorized
+				display: none
+			span
+				background: #4d5566
+			a
+				color: #4d5566
+				+muller(md)
+		&__logout
+			path, line
+				stroke: #4d5566
+	.header__logo--light
+		display: none
+	.login-svg
+		stroke: #4d5566
+	.lang__btn
+		color: #4d5566
+	.menu
+		height: 100vh
+		background: #fff
+		&-list-item a
+			color: #4d5566
+		.hud-bottom, .hud-timer
+			display: none
+	.hamburger
+		&.is-active
+			opacity: 1
+			pointer-events: auto
+			.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after
+				background: #4d5566
+			.hamburger-text
+				color: #4d5566
+		&-text
+			color: #4d5566
+		&-inner, &-inner::before, &-inner::after
+			background: #4d5566
+	.fluid-content
+		padding-left: 14%
+		// padding-right: 14%
+	.faq
+		width: 100%
+		&-page
+			&::before
+				position: fixed
+				top: 100vh
+				left: 0
+				content: ''
+				width: 100vw
+				height: 100vh
+				display: block
+				// background: #fff
+				background: linear-gradient(to right, #090025 0%,#2f0028 100%)
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#090025', endColorstr='#2f0028',GradientType=1 )
+				z-index: 9999
+				transform: translateY(100%)
+				transition: transform 0.8s cubic-bezier(.71,.01,.34,.99)
+			&.anim
+				animation: fadeUp 0.8s ease-in-out 1 backwards
+			&.leave
+				&::before
+					top: 0
+					transform: translateY(0%)
+					
+		&-header
+			line-height: 1
+			margin-bottom: 0
+
+			position: fixed
+			transform: translateY(-100%)
+		&__questions
+			position: fixed
+			z-index: 1
+			padding-top: 3.8em
+			padding-right: 8.8em
+			border-right: 1px solid #e7e6e8
+			overflow-y: auto
+			&::-webkit-scrollbar
+				width: 2px
+				&-thumb
+					background-color: #b836c6
+					border-radius: 100px
+		&__question
+			margin-bottom: 2.6em
+			cursor: pointer
+			line-height: 1.6
+			&-link
+				opacity: 0.8
+				color: #5d6473
+				position: relative
+				transition: all 0.2s ease-in-out
+				&:hover
+					color: #b836c6
+				&.is-active
+					opacity: 1
+					color: #495163
+					padding-left: 67px
+					&::before
+						transition: all 0.2s ease-in-out
+						content: ''
+						position: absolute
+						top: 5px
+						left: 0
+						display: block
+						width: 50px
+						height: 1px
+						background: #b836c6
+		&__answers
+			min-width: 36.5em
+			padding-left: 8.8em
+			position: relative
+		&__answer
+			line-height: 1.75
+			padding-bottom: 3.8em
+			max-width: 36.5em
+			&-header
+				margin-bottom: 1.35em
+				max-width: 19em
+			&-group
+				&:last-child
+					margin-bottom: 65vh
+		&__gradient
+			display: block
+			width: 37em
+			height: 18vh
+			position: fixed
+			bottom: 0
+			right: 0
+			background: linear-gradient(to bottom,rgba(255,255,255,0) 0, #fff 100%)
+.page-request
+	+rfs(16)
+	color: #495163
+	background: #fff
+	.request-page
+		&::before
+			position: fixed
+			top: 100vh
+			left: 0
+			content: ''
+			width: 100vw
+			height: 100vh
+			display: block
+			// background: #fff
+			background: linear-gradient(to right, #090025 0%,#2f0028 100%)
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#090025', endColorstr='#2f0028',GradientType=1 )
+			z-index: 9999
+			transform: translateY(100%)
+			transition: transform 0.8s cubic-bezier(.71,.01,.34,.99)
+		&.anim
+			animation: fadeUp 0.8s ease-in-out 1 backwards
+		&.leave
+			&::before
+				top: 0
+				transform: translateY(0%)
+	h1
+		margin-bottom: 20px
+		+rfs(52)
+		color: #495163
+		+muller(md)
+	h3
+		+rfs(21)
+		color: #5d6473
+		letter-spacing: 0.025em
+		margin-bottom: 1em
+		&.bold
+			+muller(bold)
+	p
+		line-height: 1.75em
+	.menu
+		height: 100vh
+		background: #fff
+		.hud-bottom, .hud-timer
+			display: none
+		&-list-item a
+			color: #4d5566
+	.hamburger
+		&.is-active
+			opacity: 1
+			pointer-events: auto
+			.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after
+				background: #4d5566
+			.hamburger-text
+				color: #4d5566
+		&-text
+			color: #4d5566
+		&-inner, &-inner::before, &-inner::after
+			background: #4d5566
+	.header
+		position: static
+		margin-bottom: 2.9em
+		&__logo
+			display: flex
+			flex-direction: row
+			align-items: center
+			justify-content: flex-start
+			&--double			
+				img
+					display: block
+					height: auto
+					&:first-child
+						max-width: 38.2%
+					&:last-child
+						max-width: 61.8%
+			&--single
+				display: none
+		&__nav li
+			// margin-right: 4.2vw
+			span
+				background: #4d5566
+			a
+				color: #4d5566
+				+muller(md)
+			&.authorized
+				display: none
+		&__logout
+			path, line
+				stroke: #4d5566
+	.lang__btn
+		color: #4d5566
+	.header__logo--light
+		display: none
+	.login-svg
+		stroke: #4d5566
+	.noise-btn
+		margin: 0
+		width: 18.2em
+		height: 4.4em
+
+		+rfs(14)
+		+muller(bold)
+		color: #495163
+		text-transform: uppercase
+		letter-spacing: 0.2em
+	.noise-canvas
+		top: -22px
+		left: -22px
+	.project
+		position: relative
+		margin-top: 5.3em
+		padding-bottom: 16.3em
+		&__content
+			padding-left: 4.3em
+		&__name
+			+rfs(36)
+			+muller(md)
+			color: #5d6473
+			letter-spacing: 0.025em
+
+			width: 90%
+			resize: none
+			border: none
+			background: transparent
+			margin-bottom: 1.5em
+			
+			border-bottom: 1px solid rgba(#8c1f95, 0)
+			&:disabled
+				opacity: 1
+			&:focus
+				outline: none
+				border-bottom: 1px solid rgba(#8c1f95, 1)
+			&-wrap
+				width: 100%
+				display: inline-block
+				position: relative
+		&__link
+			color: #f800ff
+			transition: all 0.2s ease-in-out
+			&:hover
+				color: #b836c6
+		&__group
+			width: 100%
+			padding: 0
+			border: none
+			margin: 0
+			margin-bottom: 3.1em
+			&--no-margin
+				margin-bottom: 0
+			&-input
+				position: relative
+				margin-top: 2.3em
+				max-width: 32em
+				span
+					position: absolute
+					top: 50%
+					pointer-events: none
+					transform-origin: 0 0
+					transition: all 0.2s ease
+					transform: scale(0.82) translateY(-210%)
+					opacity: 0.5
+
+					+rfs(16)
+					color: #495163
+			&-file
+				margin-top: 2.5em
+				margin-bottom: 4.6em
+				width: 25.8em
+				height: 17.7em
+				border: 2px dashed #c1c1c1
+				position: relative
+		&__input
+			border: none
+			border-bottom: 1px solid #9ea2ab
+			padding-top: 12px
+			padding-bottom: 12px
+			padding-right: 20px
+			width: 100%
+			background: transparent
+			transition: all 0.2s ease-in-out
+		
+			letter-spacing: 0.1em
+			+rfs(16)
+			&:disabled
+				opacity: 1
+			&:focus
+				outline: none
+				border-bottom-color: #8c1f95
+			&-edit
+				position: absolute
+				top: 50%
+				transform: translateY(-50%)
+				right: 0
+				width: 16px
+				height: 16px
+				border: none
+				background: transparent
+
+				+rfs(36)
+				&--header
+					top: 0
+					right: 10%
+					transform: translate(110%, 0.5em)
+				&:hover
+					.pencil
+						transform: scale(1.15)
+				&:focus
+					outline-color: #8c1f95
+			&-file
+				position: absolute
+				width: 100%
+				height: 100%
+				opacity: 0
+				z-index: 1
+				cursor: pointer
+				&-img
+					position: absolute
+					top: 50%
+					left: 50%
+					transform: translate(-50%, -50%)
+					width: 6.6em
+					height: 6.6em
+		&__desc
+			max-width: 100em
+			margin-top: 2.4em
+			&-tip
+				margin-bottom: 2.4em
+				max-width: 48em
+		&__add-member
+			border: none
+			background: transparent
+			padding: 0
+			margin-top: 2.7em
+			margin-bottom: 2.7em
+			& > span
+				display: inline-block
+				vertical-align: middle
+				margin-right: 14px
+				width: 26px
+				height: 26px
+				border-radius: 50%
+				border: 1px solid #b836c6
+				border-right: 1px solid transparent
+				position: relative
+				&::before, &::after
+					content: ''
+					position: absolute
+					top: 50%
+					left: 50%
+					transform: translate(-50%, -50%)
+					transition: all 0.2s ease-in-out
+					display: block
+					background: #b836c6
+				&::before
+					width: 7px
+					height: 1px
+				&::after
+					width: 1px
+					height: 7px
+				&:hover
+					&::before, &::after
+						transform: translate(-50%, -50%) rotate(135deg)
+
+			b
+				+muller(reg)
+				color: #b836c6
+				+rfs(16)
+				letter-spacing: 1.6px
+
+				position: relative
+				display: inline-block
+				vertical-align: middle
+				overflow: hidden
+				&:hover::before
+					transform: translateX(0)
+				&::before
+					content: ''
+					position: absolute
+					bottom: 0
+					left: 0
+					display: block
+					width: 100%
+					height: 1px
+					background: #b836c6
+					transition: all 0.2s ease-in-out
+					transform: translateX(-100%)
+
+		&__buttons
+			margin-top: 3.9em
+			display: flex
+			flex-direction: row
+			align-items: center
+			justify-content: flex-start
+		&__publish-btn
+			margin-left: 3.2em
+	.member-num
+		transform: translate(-30px, 70%)
+	&.ios
+		input
+			font-size: 16px
+
+
+
+.page-preview, .page-project
+	.hamburger.is-active
+		.hamburger-text
+			color: #4d5566
+		.hamburger-inner
+			background: #4d5566
+			&::before, &::after
+				background: #4d5566
+	.menu
+		background: #fff
+		height: 100vh
+		.hud-bottom, .hud-timer
+			display: none
+		&-list-item a
+			color: #4d5566
+	.header
+		nav
+			// todo: width
+			// max-width: 70vw
+			// max-width: 60vw
+			max-width: 45vw
+		&__nav li
+			// margin-right: 2vw
+		&__logo
+			&--single, &--double,
+				display: none
+	.preview
+		width: 100%
+		min-height: 760px
+		height: 100vh
+		position: relative
+		background-attachment: fixed
+		background-repeat: no-repeat
+		background-size: cover
+		background-position: center center
+
+		display: flex
+		align-items: center
+		padding-left: 10%
+		&::before
+			content: ''
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			display: block
+			background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%)
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0)
+			opacity: 0.8
+		&::after
+			content: ''
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			display: block
+			background: linear-gradient(-90deg, rgb(125,26,75) 0%, rgb(43,33,127) 100%)
+			opacity: 0.6
+
+		&__inner
+			z-index: 1
+			position: relative
+		&__author
+			+muller(bold)
+			+rfs(10)
+			color: #d2cfff
+			letter-spacing: 0.2em
+			text-transform: uppercase
+
+			padding-left: 121px
+			position: relative
+			&::before
+				content: ''
+				position: absolute
+				top: 4px
+				left: 0
+				width: 98px
+				height: 2px
+				background: #b836c6
+		&__name
+			+muller(reg)
+			+rfs(36)
+			color: #dddbfe
+			line-height: 1.5
+
+			margin-top: 0.9em
+			margin-bottom: 1.6em
+		&__social
+			display: inline-flex
+			flex-direction: row
+			align-items: center
+			justify-content: flex-start
+			position: relative
+			padding-left: 121px
+			&::before
+				content: ''
+				position: absolute
+				left: 0
+				top: 50%
+				transform: translateY(-50%)
+				width: 98px
+				height: 2px
+				background: #b836c6
+		&__buttons, &__links
+			display: flex
+			align-items: center
+			justify-content: flex-start
+			flex-direction: row
+		&__likes
+			+muller(bold)
+			+rfs(15)
+			color: #d2cfff
+			letter-spacing: 0.2em
+			white-space: nowrap
+			
+			border: none
+			background: transparent
+			margin-right: 1.9em
+
+			display: flex
+			flex-direction: row
+			align-items: center
+			justify-content: flex-start
+			&-icon
+				fill: #d2cfff
+				width: 39px
+				height: 45px
+				path
+					fill: #d2cfff
+			&-num
+				margin-left: 2px
+				transform: translateY(1px)
+		&__comments
+			+muller(bold)
+			+rfs(15)
+			color: #d2cfff
+			letter-spacing: 0.2em
+			white-space: nowrap
+			
+			border: none
+			background: transparent
+
+			display: flex
+			flex-direction: row
+			align-items: center
+			justify-content: flex-start
+			&-icon
+				fill: #d2cfff
+				width: 39px
+				height: 45px
+				path
+					fill: #d2cfff
+				path:last-child
+					stroke: #d2cfff
+					stroke-width: 4
+					stroke-miterlimit: 10
+			&-num
+				margin-left: 2px
+				transform: translateY(1px)
+		&__link
+			text-transform: uppercase
+			letter-spacing: 0.2em
+			color: #fff
+			+muller(bold)
+			+rfs(14)
+
+			height: 4.4em
+			&:hover, &:focus, &:visited, &:active
+				color: #fff
+			&--github
+				width: 20.2em
+				margin-left: 5em
+				margin-right: 4em
+			&--site
+				width: 16.7em
+			canvas
+				top: -20px
+				left: -20px
+	.preview__likes-icon path:first-child, .preview__comments-icon path:first-child
+		transition: all 0.2s ease-in-out
+		transform-origin: 50% 50%
+	.preview__likes:hover
+		path:first-child
+			fill: #b836c6
+			transform: scale(0.95)
+	.preview__comments:hover
+		path:first-child
+			fill: #b836c6
+			transform: scale(0.95)
+
+	.preview__publish-btn, .preview__unvote-btn
+		text-transform: uppercase
+		letter-spacing: 0.2em
+		color: #fff
+		+muller(bold)
+		+rfs(16)
+
+		display: block
+		margin: 0 auto
+		width: 20em
+		height: 4.4em
+		span
+			z-index: 1
+		canvas
+			top: -22px
+			left: -22px
+	.preview__unvote-btn
+		margin-top: 2.5em
+	.preview__edit
+		display: flex
+		flex-direction: row
+		align-items: center
+		justify-content: center
+		margin: 3em auto 9em auto
+
+		&-link
+			order: 1
+			+muller(md)
+			+rfs(16)
+			color: #fff
+			letter-spacing: 0.2em
+			text-transform: uppercase
+
+			transition: 0.2s ease-in-out
+			&:hover, &:focus, &:visited, &:active
+				color: #fff
+			&:hover
+				color: #b0aeda
+				& + .preview__edit-icon
+					transform: scale(1) translateY(-3px)
+		&-icon
+			width: 17px
+			height: 17px
+			transform: scale(-1, 1) translateY(-3px)
+			margin-right: 23px
+			fill: #fff
+
+			transition: 0.2s ease-in-out
+	.preview-info
+		display: block
+		margin: 0 auto
+		margin-top: 1em
+		max-width: 844px // 44%
+		&__content
+			padding-left: 68px
+		&__video
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			&-wrap
+				position: relative
+				padding-bottom: 56.25%
+				padding-top: 25px
+				height: 0
+
+				margin: 0 auto
+				margin-bottom: 6.4em
+				width: calc(100% - 136px)
+				& + .preview-info__header
+					margin-top: -20%
+		&__header
+			+muller(md)
+			+rfs(36)
+			color: #dddbfe
+			letter-spacing: 0
+			margin-bottom: 1.4em
+		&__subheader
+			+muller(md)
+			+rfs(21)
+			color: #dddbfe
+			letter-spacing: 0
+			margin-bottom: 1.8em
+		&__content
+			p
+				+muller(reg)
+				+rfs(16)
+				color: #b0aeda
+				line-height: 1.75
+				margin-bottom: 3em
+			img
+				display: block
+				max-width: 100%
+				height: auto
+				width: auto
+				margin-bottom: 5.6em
+		&__team
+			margin-bottom: 4em
+		&__member
+			margin-bottom: 12px
+			+muller(reg)
+			+rfs(16)
+			color: #b0aeda
+			padding-left: 0
+			&:last-child
+				margin-bottom: 0
+			&::before
+				display: none
+.preview-info__content
+	h2, h3, h4, h5, h6
+		+muller(md)
+		+rfs(36)
+		color: #dddbfe
+		letter-spacing: 0
+		margin-bottom: 1.4em
+	li
+		padding-left: 40px
+		position: relative
+		&::before
+			content: ''
+			position: absolute
+			top: 50%
+			left: 0
+			width: 20px
+			height: 1px
+			background: purple
+			transform: translateY(-2px)
+.page-project
+	.preview
+		&__inner
+			+rfs(20)
+			max-width: calc(100% - 7.2em)
+		&__votes
+			+muller(reg)
+			margin-top: 3em
+			color: #dddbfe
+			text-align: center
+			a
+				color: #f800ff
+				transition: 0.2s ease-in-out
+				&:hover, &:focus, &:visited, &:active
+					color: #f800ff
+				&:hover
+					color: #882a91
+	.prev-project, .next-project
+		+rfs(20)
+		width: 3.6em
+		height: 5.7em
+		border: none
+		background: #631c6a
+		display: block
+		z-index: 2
+		position: absolute
+		top: 50%
+		transform: translateY(-50%)
+		svg
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+			transition: 0.2s ease-in-out
+			width: 16px
+			height: 16px
+	.prev-project
+		left: 0
+		svg
+			transform: translate(-50%, -50%) scale(-1, 1)
+		&:hover
+			svg
+				transform: translate(-80%, -50%) scale(-1, 1)
+	.next-project
+		right: 0
+		&:hover
+			svg
+				transform: translate(-20%, -50%)
+	.daw
+		fill: #d1cdfd
+		stroke: #d1cdfd
+		stroke-width: 4
+		stroke-miterlimit: 10
+	.comments
+		width: 100%
+		padding-left: 10%
+		padding-right: 2.9%
+		padding-bottom: 50px
+		&__header
+			+rfs(52)
+			+muller(md)
+			color: #dddbfe
+			letter-spacing: 0
+			margin-bottom: 1em
+		&__content
+			display: flex
+			flex-direction: row
+			align-items: flex-start
+			justify-content: flex-start
+			flex-wrap: nowrap
+		&__left
+			flex-basis: 70%
+			margin-right: 5.2em
+			padding-right: 4.7em
+			padding-top: 25px
+			border-right: 1px solid rgba(#fff, 0.2)
+	.comment
+		position: relative
+		padding-left: 3.9em
+		&--first
+			&::before
+				content: ''
+				position: absolute
+				+rfs(20)
+				top: 10px
+				left: 0
+				width: 2.3em
+				height: 2px
+				background: #b836c6
+		&--padding
+			padding-left: 7.8em
+		&__author
+			+muller(md)
+			+rfs(21)
+			color: #dddbfe
+		&__date
+			+muller(md)
+			+rfs(14)
+			color: #dddbfe
+
+			opacity: 0.5
+			margin-top: 0.8em
+			margin-bottom: 2.4em
+		&__text
+			+muller(reg)
+			+rfs(18)
+			color: #b0aeda
+			line-height: 1.75
+		&__reply
+			+muller(reg)
+			color: #9f29a3
+			+rfs(18)
+
+			margin-top: 1em
+			padding: 0
+			border: none
+			background: transparent
+			transition: 0.2s ease-in-out
+			&:hover
+				color: #f800ff
+		&__underline
+			width: 100%
+			height: 1px
+			background: rgba(#fff, 0.2)
+			margin-top: 14px
+			margin-bottom: 2.9em
+	.form
+		display: flex
+		flex-direction: column
+		align-items: center
+		justify-content: flex-start
+		flex-basis: 30%
+		min-width: 20.5em
+		textarea
+			resize: vertical
+		&__header
+			+muller(md)
+			+rfs(30)
+			color: #dddbfe
+			margin-bottom: 1.4em
+			align-self: flex-start
+		&__input
+			border: none
+			border-bottom: 1px solid #dddbfe
+			padding-top: 12px
+			padding-bottom: 12px
+			margin-bottom: 11px
+			width: 100%
+			background: transparent
+			+rfs(16)
+			transition: all 0.2s ease-in-out
+			color: #dddbfe
+			&:focus
+				outline: none
+				border-bottom-color: #882A91
+		&__group
+			width: 100%
+			border: none
+			padding: 0
+			margin: 0
+			margin-bottom: 1em
+			&:first-child
+				input
+					padding-top: 0
+			&-input
+				position: relative
+				&.clicked
+					span
+						transform: scale(0.82) translateY(-260%)
+					span.top
+						transform: scale(0.82) translateY(-100%)
+				span
+					position: absolute
+					top: 50%
+					transform: translateY(calc(-50% - 12px))
+					transform-origin: 0 0
+					transition: all 0.2s ease
+					pointer-events: none
+
+					+rfs(16)
+					color: #dddbfe
+			&--textarea
+				margin-bottom: 3.5em
+		&__send
+			width: 14em
+			height: 4.4em
+			align-self: flex-end
+
+			text-transform: uppercase
+			+muller(bold)
+			+rfs(14)
+			letter-spacing: 0.2em
+			color: #fff
+			canvas
+				top: -22px
+				left: -22px
+.page-projects
+	&::before
+		content: ''
+		z-index: -1
+		pointer-events: none
+		position: fixed
+		top: 0
+		left: 0
+		width: 100%
+		height: 100vh
+		opacity: 0.5
+		display: block
+		background: linear-gradient(to right, #090025 0%,#2f0028 100%)
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#090025', endColorstr='#2f0028',GradientType=1 )
+	&::after
+		position: fixed
+		top: 100vh
+		left: 0
+		content: ''
+		width: 100vw
+		height: 100vh
+		display: block
+		background: #fff
+		z-index: 9999
+		transform: translateY(100%)
+		transition: transform 0.6s cubic-bezier(.71,.01,.34,.99)
+	&.leave
+		&::after
+			top: 0
+			transform: translateY(0%)
+	#webgl-output
+		z-index: -2
+	.menu
+		background: #fff
+		height: 100vh
+		.hud-bottom, .hud-timer
+			display: none
+		&-list-item a
+			color: #4d5566
+	.hamburger.is-active
+		.hamburger-text
+			color: #4d5566
+		.hamburger-inner
+			background: #4d5566
+			&::before, &::after
+				background: #4d5566
+	.header
+		&__logo
+			&--single, &--double,
+				display: none
+		nav
+			// todo: width projects
+			// max-width: 70vw
+			max-width: 45vw
+		&__nav li
+			// margin-right: 2vw
+	.projects
+		display: flex
+		flex-direction: row
+		align-items: stretch
+		justify-content: space-between
+		flex-wrap: wrap
+		padding-bottom: 7.5em
+		transition: 0.2s ease-in-out
+		&-page
+			padding-top: 12%
+			max-width: 1550px
+			margin: 0 auto
+			transition: all 0.4s ease-in-out
+			overflow-x: hidden
+			&.is-hidden
+				opacity: 0
+				pointer-events: none
+		&-header
+			+muller(md)
+			+rfs(52)
+			color: #dddbfe
+			line-height: 1
+			margin-bottom: 1.5em
+		&-subheader
+			+muller(reg)
+			+rfs(18)
+			color: #dddbfe
+			b
+				+muller(bold)
+			a
+				color: #f800ff
+				&:hover, &:focus, &:visited, &:active
+					color: #f800ff
+				&:hover
+					color: rgba(#f800ff, 0.8)
+		&-row
+			width: 100%
+			display: flex
+			align-items: center
+			justify-content: space-between
+		&-buttons
+			display: flex
+			align-items: center
+			justify-content: center
+			margin-left: auto
+		&-button
+			padding: 0
+			padding-bottom: 10px
+
+			+muller(md)
+			+rfs(18)
+			color: #dddbfe
+			border: none
+			background: transparent
+
+			position: relative
+			&:focus
+				outline: none
+			&::before
+				content: ''
+				position: absolute
+				bottom: 0
+				left: 0
+
+				width: 100%
+				height: 1px
+				background: #b836c6
+				transition: 0.2s ease-in-out
+				transform: scale(0)
+			&:hover, &.is-active
+				&::before
+					transform: scale(1)
+			&:last-child
+				margin-left: 4.7em
+		
+	.project
+		max-width: 30%
+		min-width: 300px
+		width: 22.2em
+		// margin-top: 7.2em
+		margin-bottom: 5em
+
+		opacity: 0
+		&__icons
+			display: flex
+			flex-direction: row
+			align-items: center
+			justify-content: flex-start
+		&__comments
+			+muller(bold)
+			+rfs(15)
+			color: #d2cfff
+			letter-spacing: 0.2em
+			white-space: nowrap
+			
+			padding: 0
+			margin-right: 10px
+			border: none
+			background: transparent
+
+			display: flex
+			flex-direction: row
+			align-items: center
+			justify-content: flex-start
+			&-icon
+				fill: #d2cfff
+				width: 32px
+				height: 32px
+				transition: all 0.2s ease-in-out
+				path
+					transition: all 0.2s ease-in-out
+					fill: #d2cfff
+				path:last-child
+					stroke: #d2cfff
+					stroke-width: 4
+					stroke-miterlimit: 10
+			&-num
+				margin-left: 2px
+				transform: translateY(1px)
+			&:hover
+				.project__comments-icon
+					transform: scale(0.95)
+					path
+						fill: #b836c6
+		&__likes
+			+muller(bold)
+			+rfs(15)
+			color: #d2cfff
+			letter-spacing: 0.2em
+			white-space: nowrap
+			
+			border: none
+			background: transparent
+			margin-right: 1.9em
+
+			display: flex
+			flex-direction: row
+			align-items: center
+			justify-content: flex-start
+			&-icon
+				fill: #d2cfff
+				width: 32px
+				height: 32px
+				path
+					fill: #d2cfff
+			&-num
+				margin-left: 2px
+				transform: translateY(1px)
+		.project__likes-icon path:first-child
+			transition: all 0.2s ease-in-out
+			transform-origin: 50% 50%
+		.project__likes:hover
+			path:first-child
+				fill: #b836c6
+				transform: scale(0.95)
+
+		&__img
+			width: 100%
+			height: 13.4em
+			background-repeat: no-repeat
+			background-size: cover
+			background-position: center center
+			position: relative
+			&::before
+				position: absolute
+				content: ''
+				display: block
+				width: 100%
+				height: 100%
+				background: linear-gradient(to left, rgba(#583991, 1) 0%, rgba(#223991, 1) 100%)
+				mix-blend-mode: hard-light
+				z-index: 1
+		&__author
+			+muller(bold)
+			+rfs(10)
+			color: #d2cfff
+			letter-spacing: 0.2em
+			text-transform: uppercase
+			margin-top: 3em
+			margin-bottom: 20px
+			padding-left: 121px
+			position: relative
+			&::before
+				content: ''
+				position: absolute
+				top: 5px
+				left: 0
+				width: 98px
+				height: 2px
+				background: #7c167f
+		&__desc
+			+muller(reg)
+			+rfs(16)
+			color: #dddbfe
+			line-height: 1.625
+			margin-bottom: 1.625em
+		&__footer
+			display: flex
+			flex-direction: row
+			align-items: center
+			justify-content: flex-start
+		&__vote
+			margin-left: auto
+			border: none
+			background: transparent
+
+			+muller(bold)
+			+rfs(12)
+			color: #d2cfff
+			text-transform: uppercase
+			letter-spacing: 0.2em
+			&-arrow
+				width: 83px
+				height: auto
+				margin-right: 14px
+				transition: 0.2s ease-in-out
+				transform: translateY(2px)
+				&-line
+					fill:none
+					stroke: #B836C6
+					stroke-width: 2
+					stroke-miterlimit: 10
+				&-polygon
+					fill:#B836C6
+			&:hover
+				.project__vote-arrow
+					transform: translate(6px, 2px)
+		&__cancel
+			border: none
+			background: transparent
+			padding: 0
+			width: 20px
+			height: 20px
+			display: none
+			svg
+				width: 15px
+				height: 15px
+				fill: #b836c6
+	
+		&.is-voted
+			.project
+				&__cancel
+					display: block
+				&__vote
+					color: #b836c6
+
+.page-login
+	background: #fff
+	color: #495163
+	min-height: 100vh
+	&.ios
+		.login-form__input
+			font-size: 16px
+	.menu
+		height: 100vh
+		background: #fff
+		.hud-bottom, .hud-timer
+			display: none
+		&-list-item a
+			color: #4d5566
+	.hamburger
+		&.is-active
+			opacity: 1
+			pointer-events: auto
+			.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after
+				background: #4d5566
+			.hamburger-text
+				color: #4d5566
+		&-text
+			color: #4d5566
+		&-inner, &-inner::before, &-inner::after
+			background: #4d5566
+	.lang__btn
+		color: #4d5566
+	.header
+		&__logo
+			&--double, &--light
+				display: none
+		&__login
+			display: none
+		&__nav li
+			&.authorized
+				display: none
+			span
+				background: #4d5566
+			a
+				color: #4d5566
+				+muller(md)
+	.login-form
+		&__auth, &__recovery
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+			width: 30em
+			&.is-hidden
+				opacity: 0
+				pointer-events: none
+		&-wrap
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			min-height: 100vh
+			display: flex
+			align-items: center
+			justify-content: center
+			&::before
+				position: fixed
+				top: 100vh
+				left: 0
+				content: ''
+				width: 100vw
+				height: 100vh
+				display: block
+				// background: #fff
+				background: linear-gradient(to right, #090025 0%,#2f0028 100%)
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#090025', endColorstr='#2f0028',GradientType=1 )
+				z-index: 9999
+				transform: translateY(100%)
+				transition: transform 0.8s cubic-bezier(.71,.01,.34,.99)
+			&.anim
+				animation: fadeUp 0.8s ease-in-out 1 backwards
+			&.leave
+				&::before
+					top: 0
+					transform: translateY(0%)
+			.hud
+				&-bottom, &-timer
+					position: absolute
+					bottom: 8vh
+					left: 0
+				&-timer
+					transform: translateY(100%)
+				&__icon svg
+					fill: #8f92a2
+				&__deadline-date, &-timer__cell
+					color: #8f92a2
+		&__header
+			+muller(md)
+			+rfs(52)
+			letter-spacing: 0
+			color: #495163
+			margin-bottom: 1em
+		&__group
+			border: none
+			padding: 0
+			margin: 0
+			margin-bottom: 2.5em
+
+			width: 100%
+			&:nth-child(3)
+				margin-bottom: 1.25em
+			&-input
+				position: relative
+				&.clicked
+					span
+						transform: scale(0.82) translateY(-260%)
+			span
+				position: absolute
+				top: 50%
+				transform: translateY(calc(-50%))
+				transform-origin: 0 0
+				transition: all 0.2s ease
+				pointer-events: none
+
+				+rfs(18)
+				+muller(reg)
+				color: #4d5566
+		&__input
+			border: none
+			border-bottom: 1px solid #495163
+			width: 100%
+			padding-bottom: 13px
+			background: transparent
+			+rfs(16)
+			transition: all 0.2s ease-in-out
+			color: #4d5566
+			&:focus
+				outline: none
+				border-bottom-color: #882A91
+		&__btn
+			border: none
+			background: transparent
+			margin: 0
+			margin-left: auto
+			width: 13.2em
+			height: 5em
+
+			+rfs(14)
+			+muller(bold)
+			color: #4d5566
+			text-transform: uppercase
+			letter-spacing: 0.2em
+			&:hover, &:focus, &:visited, &:active
+				color: #4d5566
+			a
+				color: #4d5566
+				&:hover, &:focus, &:visited, &:active
+					color: #4d5566
+			canvas
+				top: -22px
+				left: -22px
+		&__remember
+			+muller(reg)
+			+rfs(16)
+			color: #495163
+			transition: 0.2s ease-in-out
+			opacity: 0.5
+
+			margin-bottom: 3.5em
+			display: block
+			&:hover, &:focus, &:visited, &:active
+				text-decoration: none
+			&:hover
+				color: #b836cb
+				opacity: 0.7
+
+@import "media"

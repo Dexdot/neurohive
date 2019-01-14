@@ -1,0 +1,866 @@
+@import "vars"
+@import "rfs"
+@import "mixins"
+
+
+
+@media only screen and (min-width : 2000px)
+
+	// todo: max-width
+	.header nav
+		max-width: 35vw
+	.page-faq
+		.faq
+			&__questions
+				padding-right: 10vw
+			&__answers
+				padding-left: 10vw
+		.header nav
+			max-width: 35vw
+	.int-canvas-wrap--chat
+		padding-top: 10vh
+
+
+@media only screen and (min-width : 2400px)
+
+	.page-faq
+		.faq
+			&__answers
+				min-width: 60%
+			&__answer
+				max-width: 60%
+
+
+
+@media only screen and (max-width : 2000px)
+
+	.int-canvas
+		&--brain
+			transform: translate(5vw, 0) scale(1.2)
+		&--cup
+			transform: translate(10vw, 0) scale(1.2)
+		&--chat
+			transform: scale(1.2)
+
+@media only screen and (max-width : 1700px)
+
+	.int-canvas
+		&--cup
+			transform: translate(5vw, 0)
+
+
+@media only screen and (max-width : 1650px)
+
+	// .page-faq, .page-request
+	// 	.header__nav li
+	// 		margin-right: 3vw
+	// .page-preview, .page-project, .page-projects, .page-request
+	// 	.header__nav li a
+	// 		font-size: 10px
+	.page-faq
+		.fluid-content
+			padding-left: 10%
+			padding-right: 10%
+
+@media only screen and (max-width : 1450px)
+
+	.page-faq
+		.faq
+			&__questions
+				padding-right: 6em
+			&__answers
+				padding-left: 6em
+	// .page-faq, .page-request
+	// 	.header__nav li
+	// 		margin-right: 3vw
+
+	.header__nav li a, .lang__btn
+		font-size: 10px
+	.hud__deadline-date
+		+rfs(14)
+
+	.int-canvas
+		&--brain
+			transform: translate(5vw, 0) scale(1)
+		&--chat
+			transform: scale(1)
+
+
+@media only screen and (max-width : 1380px)
+
+	.page-faq
+		.faq
+			&__answers
+				min-width: 30em
+			&__answer
+				max-width: 30em
+
+	.page-preview, .page-project, .page-projects
+		.header
+			&__logo
+				width: 6.5em
+			&__nav
+				li.authorized
+					margin-right: 10px
+				a
+					font-size: 10px
+
+@media only screen and (max-width : 1249px)
+
+	// Prize
+	.list
+		max-width: 80%
+
+	.int-canvas
+		&--brain
+			transform: translate(5vw, 0) scale(0.85)
+		&--cup
+			transform: translate(5vw, 0) scale(0.9)
+		&--chat
+			transform: scale(0.8)
+
+@media only screen and (max-width : 1199px)
+	
+	// .header
+	// 	&__nav li
+			// margin-right: 20px
+			// a
+			// 	font-size: 10.5px
+	.page-projects
+		.project
+			max-width: 40%
+			width: 40%
+			&__img
+				height: 16.5em
+			&__vote-arrow
+				width: 63px
+				height: 12px
+	.page-preview, .page-project
+		.preview
+			align-items: flex-start
+			padding-top: 15%
+			&__social
+				flex-wrap: wrap
+				padding-left: 0
+				&::before
+					display: none
+		.header__logo
+			width: 8.67em
+	.page-projects
+		.header__logo
+			width: 8.67em
+	.page-faq
+		.faq
+			&__questions
+				padding-right: 4em			
+			&__question
+				max-width: 20em
+			&__question-link.is-active
+				padding-left: 17px
+				&::before
+					width: 10px
+			&__answers
+				padding-left: 4em
+				min-width: 20em
+			&__answer
+				max-width: 100%
+				padding-right: 20px
+	
+	.lang
+		display: none
+	.hamburger
+		opacity: 1
+		pointer-events: auto	
+	.header
+		padding-top: 20px
+		&__inner nav, &__login, &__logout
+			display: none
+	.menu
+		display: flex
+		.lang
+			display: block
+
+
+@media only screen and (max-width : 1120px)	
+
+	.chat__btn
+		display: block
+		margin-left: auto
+		margin-right: auto
+		&--slack
+			margin-top: 2em
+
+@media only screen and (max-width : 1020px)
+
+	.page-project
+		.preview
+			&__likes
+				margin-right: 15px
+			&__link--github
+				margin-left: 15px
+				margin-right: 25px
+
+@media only screen and (max-width : 989px)
+
+	// About
+	.about__header
+		.br-2
+			display: inline
+	.menu .lang
+		right: 15vw
+
+@media only screen and (max-width : 900px)
+
+	.page-preview, .page-project
+		.preview
+				&__buttons
+					order: 1
+					margin-top: 2em	
+				&__links
+					width: 100%
+				&__link--github
+					margin-left: 0
+				&-info
+					padding-left: 2.9%
+					padding-right: 2.9%
+	.page-project
+		.comments__left
+			padding-right: 2.7em
+			margin-right: 3.2em
+
+@media only screen and (max-width : 890px)
+
+	.page-faq
+		.faq
+			&__questions
+				padding-right: 4em
+			&__answers
+				padding-left: 4em
+			&__question
+				max-width: 10em
+
+@media only screen and (max-width : 859px)
+
+	// Prize
+	.cover-wrap
+		max-width: 90%
+
+	.page-projects
+		.project
+			&__vote-arrow
+				width: 63px
+
+@media only screen and (max-width : 840px)
+
+	.page-request
+		.project__name
+			max-width: 70%
+		.project__input-edit--header
+			right: 30%
+
+@media only screen and (max-width : 830px)
+
+	// About
+	=left-line
+		padding-left: 78px
+		position: relative
+		&::before
+			content: ''
+			display: block
+			position: absolute
+			top: 10px
+			left: 0
+			width: 48px
+			height: 2px
+			background: #7c167f
+	.news__desc,
+	.chat__desc,
+	.about__info,
+	.versus__desc,
+	.list--right .list__item,
+			+left-line
+	
+	// Request
+	.request__form
+		padding-left: 4vw
+	.member-num
+		transform: translate(-20px, 10%)
+
+
+	.page-project
+		.comments
+			&__content
+				flex-direction: column
+			&__left
+				margin-right: 0
+				flex-basis: 100%
+		.form
+			margin-top: 3em
+			flex-basis: 100%
+			width: 100%
+			&__send
+				align-self: flex-start
+	.page-projects
+		.projects-subheader b
+			display: block
+			margin-bottom: 0.3em
+
+@media only screen and (max-width : 719px)
+
+	.menu-list-item
+		margin-bottom: 5vw
+	.hamburger
+		top: 5.5vw
+	.fixed-logo
+		padding-top: 5.5vw
+	.menu .lang
+		top: 5.5vw
+		right: 20vw
+
+	// Main
+	.hud
+		&-bottom .line
+			width: 68px
+			margin-right: 2em
+		&__icon
+			margin-right: 2em
+
+	// About
+	.section-about
+		.placeholder
+			display: none
+	.about
+		width: 80%
+		margin-left: auto
+	
+
+	.int-canvas, .int-canvas-wrap
+		display: none
+		opacity: 0
+		width: 0
+		height: 0
+		visibility: hidden 
+
+	// Versus
+	.section-versus
+		.placeholder
+			display: none
+		.fluid--px
+			min-height: auto
+			padding-top: 15vh
+			padding-bottom: 15vh
+	.versus
+		width: 80%
+		margin-left: auto
+		// padding-left: 109px
+
+	// Chat
+	.section-chat
+		.placeholder
+			display: none
+		.fluid--px
+			min-height: auto
+			padding-top: 15vh
+			padding-bottom: 15vh
+	.chat
+		width: 70%
+		margin-left: auto
+
+	// News
+	.section-chat
+		.section-padding
+			height: 2em
+	.news
+		flex-direction: column
+		&__info
+			margin: 0
+			margin-bottom: 2em
+		&__images
+			justify-content: center
+			align-items: center
+			flex-wrap: wrap
+		&__img
+			transform: translate(0, 0) !important
+			margin: 1em
+			margin-bottom: 3em
+			width: 40%
+			min-width: 230px
+			display: none
+			&:nth-child(1), &:nth-child(2), &:nth-child(3)
+				display: block
+			&-header
+				+rfs(18)
+			&-tip
+				+rfs(16)
+		&-buttons
+			display: none
+
+	.page-request
+		.project__buttons
+			flex-direction: column
+			align-items: flex-start
+		.project__publish-btn
+			margin-left: 0
+			margin-top: 3em
+
+@media only screen and (max-width : 679px)
+	
+	// Main
+	.fixed-nav
+		display: none
+	.about
+		width: 100%
+
+	// Versus
+	.versus
+		width: 100%
+		margin-left: 0
+
+	// Examples
+	.examples-header
+		line-height: 1.4
+		br
+			display: inline
+	.example
+		flex-direction: column
+		margin-bottom: 7em
+		&__img
+			margin-bottom: 1.5em
+		&__info.absolute
+			position: static
+			transform: translate(0, 0)
+		&__desc
+			margin-top: 1em
+		&-wrap
+			padding: 2em 0 0 4em
+			&--right
+				padding: 2em 4em 0 0
+				.example
+					padding-left: 0
+					&__img
+						order: 0
+
+	// Chat
+	.chat
+		width: 100%
+		margin-left: 0
+
+	// Request
+	.section--request
+		padding-bottom: 20vh
+	.request
+		flex-direction: column
+		&__info
+			width: 100%
+			margin-bottom: 80px
+			padding: 0
+			&-header
+				padding-left: 0
+		&__form
+			height: auto
+			width: 100%
+			border: none
+			padding: 0
+		&__member
+			.request__group
+				padding-left: 30px
+				padding-right: 30px
+		.member-num
+			transform: translate(0, 10%)
+		.member-delete
+			transform: translate(0, 20%)
+
+	.page-projects
+		.projects
+			&-page
+				padding-top: 20%
+			&-row
+				flex-direction: column
+				align-items: flex-start
+			&-buttons
+				margin-top: 2em
+				margin-left: 0
+		.project
+			min-width: 140px
+			width: 47%
+			max-width: 47%
+			&__img
+				height: 12em
+			&__footer
+				flex-wrap: wrap
+			&__icons
+				width: 100%
+				margin-top: 1em
+				order: 1
+			&__vote
+				margin-left: 0
+				text-align: left
+
+
+@media only screen and (max-width : 640px)
+
+	.header
+		background: transparent
+
+	.fluid-content
+		padding-left: 0 !important
+
+	.page-faq
+		.faq
+			&-header
+				position: static
+			&__questions
+				display: none
+			&__gradient
+				display: none !important
+			&__answers
+				margin-left: 0 !important
+				padding-left: 0
+				padding-right: 0
+				min-width: auto
+				border: none
+			&__answer
+				padding-left: 0
+				padding-right: 0
+				&-group:last-child
+					margin-bottom: 0
+	.page-request
+		.request-header__desc, .project__content
+			padding-left: 30px
+		.project__name
+			max-width: 80%
+		.project__input-edit--header
+			right: 20%
+	.page-preview, .page-project
+		.preview
+			padding-left: 2.9%
+			padding-right: 2.9%
+			align-items: center
+			justify-content: center
+			&__name
+				max-width: 100% !important
+	.page-project
+		.comments
+			padding-left: 2.9%
+
+@media only screen and (max-width : 629px)
+
+	// Prize
+	.cover-wrap
+		max-width: 100%
+		padding-right: 0
+	.list
+		max-width: 80%
+		padding-left: 0
+	.prizes
+		margin-bottom: 4em
+
+	// Versus
+	.cover-wrap
+		&--voting
+			margin-top: 4em
+		&--right
+			padding-left: 0
+			.cover
+				padding-left: 0
+				&__inner
+					width: 90%
+					margin: 0 auto
+	.list--right
+		max-width: 100%
+
+@media only screen and (max-width : 580px)
+
+	.page-preview, .page-project
+		.preview
+			&__links
+				flex-direction: column
+				align-items: flex-start
+			&__link--github
+				margin-bottom: 2em
+	.page-project
+		.preview
+			&__inner
+				max-width: unset
+			&-info
+				margin-top: 40px !important
+		.prev-project, .next-project
+			height: 3.6em
+			top: auto
+			transform: translateY(50%)
+			bottom: 0
+
+@media only screen and (max-width : 559px)
+
+	// Hud
+	.section
+		&-about, &-prize, &-versus, &-examples
+			.hud-bottom, .hud-timer
+				display: none
+
+	// Main
+	.hud
+		&-bottom .line
+			display: none
+		&__icon
+			margin-right: 1.8em
+	.footer__copyright
+		float: unset
+		display: block
+		span
+			float: right
+	.developer
+		margin-top: 10px
+		float: unset
+		display: block
+
+	// News
+	.news
+		flex-direction: column
+		justify-content: flex-end
+		&__img
+			width: 75%
+
+	// Footer
+	.footer
+		padding-bottom: 10%
+
+	.page-request
+		.project__group-input
+			max-width: calc(100% - 35px)
+
+@media only screen and (max-width : 530px)
+
+	.page-projects
+		.projects
+			flex-direction: column
+			&-page
+				padding-top: 30%
+		.project
+			max-width: 100%
+			width: 100%
+			&__img
+				height: 17em
+
+@media only screen and (max-width : 480px)
+
+	// News
+	.news
+		&__social
+			padding-left: 0
+		&__desc
+			width: auto
+
+	.menu .lang
+		left: auto
+		top: auto
+		bottom: 17%
+		right: 2.9%
+
+	.page-preview, .page-project
+		.preview
+			&__author
+				padding-left: 0
+				&::before
+					display: none
+			&-info
+				&__video-wrap
+					width: 90%
+				&__content
+					padding-left: 0
+			&__social
+				flex-direction: column
+				align-items: center
+			&__link--github
+				margin-right: 0
+	.page-login
+		.login-form
+			&__auth, &__recovery
+				width: 90%
+			&__btn
+				margin: 0 auto
+	.cover__header
+		margin-bottom: 1.1em
+	.fluid
+		padding-left: 6%
+		padding-right: 6%
+
+@media only screen and (max-width : 419px)
+
+	// Section padding
+	.section
+		&-prize
+			.hud-timer + .section-padding
+				display: none
+		&-versus
+			.hud-timer + .section-padding
+				display: none
+		&-examples
+			.hud-timer + .section-padding
+				display: none
+
+	.menu-list-item
+		margin-bottom: 10vw
+
+	// Main
+	.section-main .hud--main
+		bottom: 20vh
+		text-align: center
+	.main
+		transform: translateY(-20%)
+		&__desc
+			margin-top: 0em
+
+	// Cover
+	.cover-wrap--voting + .section-padding, .cover-wrap--voting + .section-padding + .section-padding
+		display: none
+	.cover-wrap--stages + .section-padding
+		display: none
+	.cover-wrap--voting
+		margin-top: 0
+
+
+	// Versus
+	.section-versus .fluid--px
+		padding-top: 0
+
+
+	// Prize
+	.cover__inner
+		left: auto !important
+		padding-left: 15px
+		padding-right: 15px
+	.list
+		max-width: 100%
+	.prizes
+		max-width: 100%
+	.prize
+		margin-bottom: 3em
+		&__ring
+			max-width: 163px
+			max-height: 163px
+			min-height: 100px
+			min-width: 100px
+			width: 30vw
+			height: 30vw
+	
+	// Examples
+	.section-examples .fluid + .section-padding
+		display: none
+	h4
+		+rfs(30)
+	.examples
+		&-header
+			+rfs(44)
+		&-desc
+			max-width: 100%
+	.example
+		&-wrap
+			padding: 2em 0 0 0
+		&__img
+			transform: scale(0.9)
+
+	.hud--main
+		.hud__deadline
+			float: unset
+		.hud__icon
+			display: none
+		.hud-timer__inner
+			margin-right: auto
+	.hud-timer__inner
+		max-width: 60%
+
+	.section-chat .fluid--px
+		padding-top: 0
+		padding-bottom: 5vh
+
+	// News
+	.news
+		&__desc
+			padding-left: 0
+			width: auto
+			&::before
+				display: none
+		&__social
+			padding-left: 0
+		&__img
+			width: 90%
+			margin-left: 0
+			margin-right: 0
+	
+	.request
+		.member-num
+			transform: translate(0, 10%)
+		.member-delete
+			transform: translate(-40%, 20%)
+
+	.page-request
+		.project__group-file
+			width: 100%
+			height: 140px
+
+		.project__buttons
+			align-items: center
+
+		.project__name
+			padding-left: 0
+			+rfs(34)
+
+		.project__input
+			padding-right: 35px
+	
+@media only screen and (max-width : 399px)
+
+
+	// Main
+	.main__header
+			+rfs(70)
+	.hud__deadline-date
+		+rfs(12)
+		+muller(md)
+	
+	// About
+	.about__info
+		padding-right: 10px
+	.section-about .fluid--center
+		padding-top: 0
+
+	// Prize
+	.prize
+		&-header__text
+			+rfs(40)
+		&-desc
+			display: block
+			margin: 0 auto
+			width: 80%
+	
+	// Versus
+	.versus__header-text
+		+rfs(45)
+
+	// Request
+	.footer__copyright span
+		display: block
+		float: unset
+		margin-left: 0
+
+
+// FAQ
+
+@media only screen and (min-height : 850px)
+
+	.page-faq
+		.faq__answer-group:last-child
+			margin-bottom: 70vh
+
+@media only screen and (min-height : 950px)
+
+	.page-faq
+		.faq__answer-group:last-child
+			margin-bottom: 75vh
+
+@media only screen and (min-height : 1150px)
+
+	.page-faq
+		.faq__answer-group:last-child
+			margin-bottom: 80vh

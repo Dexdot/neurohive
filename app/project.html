@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+	<meta charset="utf-8">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Neurohive</title>
+	<meta name="description" content="SITE_DESCRIPTION">
+	<meta name="keywords" content="SITE_KEYWORDS">
+	<meta name="robots" content="index, follow">
+
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="Neurohive">
+	<meta property="og:url" content="https://">
+	<meta property="og:image" content="img/favicon/android-chrome-512x512.png">
+	<meta property="og:description" content="SITE_DESCRIPTION">
+
+	<!-- favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+	<link rel="manifest" href="img/favicon/site.webmanifest">
+	<link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#090025">
+	<link rel="shortcut icon" href="img/favicon/favicon.ico">
+	<meta name="msapplication-TileColor" content="#090025">
+	<meta name="msapplication-config" content="img/favicon/browserconfig.xml">
+	<meta name="theme-color" content="#090025">
+
+	<link rel="stylesheet" href="css/main.min.css">
+
+</head>
+<body>
+
+	<div class="menu">
+		<div class="fluid">
+			<ul class="menu-list">
+				<li class="menu-list-item"><a class="text-code-hover-feel" href="">Подать заявку</a></li>
+				<li class="menu-list-item"><a class="text-code-hover-feel" href="">О конкурсе</a></li>
+				<li class="menu-list-item"><a class="text-code-hover-feel" href="">Смотреть работы</a></li>
+				<li class="menu-list-item"><a class="text-code-hover-feel" href="">Чат в телеграм</a></li>
+				<li class="menu-list-item"><a class="text-code-hover-feel" href="">FAQ</a></li>
+			</ul>
+		</div>
+		<div class="lang">
+			<button class="lang__btn lang__btn--ru is-active" data-lang="RUS">RU</button>
+			<button class="lang__btn lang__btn--en" data-lang="ENG">EN</button>
+		</div>
+		<div class="hud-bottom">
+			<div class="fluid">
+				<span class="line"></span>
+				<a class="hud__icon" href="#">
+					<svg width="16" height="16">
+					  <use xlink:href='#fb'/>
+					</svg>
+				</a>
+				<a class="hud__icon" href="#">
+					<svg width="19" height="19">
+					  <use xlink:href='#vk'/>
+					</svg>
+				</a>
+				<a class="hud__icon" href="#">
+					<svg width="16" height="16">
+					  <use xlink:href='#telegram'/> 
+					</svg>
+				</a>
+				<span class="hud__deadline"><span class="line"></span><span class="hud__deadline-date">ДЕДЛАЙН — 9 МАЯ</span></span>
+			</div>
+		</div>
+		<div class="hud-timer">
+			<div class="fluid">
+				<div class="hud-timer__inner">
+					<div class="hud-timer__cell hud-timer__cell--days">
+						<span>22</span>дня
+					</div>
+					<div class="hud-timer__cell hud-timer__cell--hours">
+						<span>0</span>часов
+					</div>
+					<div class="hud-timer__cell hud-timer__cell--mins">
+						<span>2</span>мин.
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<button class="hamburger hamburger--spin" type="button">
+	  <span class="hamburger-box">
+	  	<span class="hamburger-text">МЕНЮ</span>
+	    <span class="hamburger-inner"></span>
+	  </span>
+	</button>
+
+	<header class="header">
+		<div class="fluid">
+			<div class="header__inner">
+
+				<a class="header__logo header__logo--light" href="#">
+					<img class="rimg" src="img/logo-light.svg" alt="Neurohive">
+				</a>
+
+				<a class="header__logo header__logo--double" href="#">
+					<img src="img/logo-icon.svg" alt="Neurohive">
+					<img src="img/logo-text.svg" alt="Neurohive">
+				</a>
+				<a class="header__logo header__logo--single" href="#">
+					<img class="rimg" src="img/logo-dark.svg" alt="Neurohive">
+				</a>
+
+				<nav>
+					<ul class="header__nav">
+						<li><a class="text-code-hover-feel" href="/index.html#about">О конкурсе</a><span></span></li>
+						<!-- <li><a class="text-code-hover-feel" href="">Смотреть работы</a><span></span></li> -->
+						<li><a class="text-code-hover-feel" href="/index.html#chat">Чат в телеграм</a><span></span></li>
+						<li><a class="text-code-hover-feel" href="/index.html#request">Подать заявку</a><span></span></li>
+						<li><a class="text-code-hover-feel" href="/faq.html">FAQ</a><span></span></li>
+						<li class="authorized"><a class="text-code-hover-feel" href=""><b class="authorized__name">Константин</b></a><span></span></li>
+					</ul>
+				</nav>
+
+				<div class="lang">
+					<button class="lang__btn lang__btn--ru is-active" data-lang="RUS">RU</button>
+					<button class="lang__btn lang__btn--en" data-lang="ENG">EN</button>
+				</div>
+
+				<a class="header__login" href="login.html">
+					<svg viewBox="0 0 102.7 85.5">
+						<path class="login-svg" d="M39.4,18.7C52,5.6,73,5.1,86.1,17.7s13.6,33.5,1,46.7C75.1,77,55.5,78,42.3,67.1c-0.6-0.5-1.3-1.1-1.9-1.7"/>
+						<g>
+							<line class="login-svg" x1="10.5" y1="41.6" x2="62.9" y2="41.6"/>
+							<line class="login-svg" x1="49.9" y1="28.6" x2="62.9" y2="41.6"/>
+							<line class="login-svg" x1="49.9" y1="55" x2="62.9" y2="42"/>
+						</g>
+					</svg>
+				</a>
+
+				<a class="header__logout is-hidden" href="">
+					<svg viewBox="0 0 71 78">
+						<path class="logout-svg" d="M59.4,20c0.6,0.6,1.2,1.3,1.7,1.9C72,35.1,71,54.7,58.4,66.7c-13.2,12.6-34.1,12.1-46.7-1s-12.1-34.1,1-46.7"/>
+						<line class="logout-svg" x1="36" y1="3" x2="36" y2="28.8"/>
+					</svg>
+				</a>
+
+			</div>
+		</div>
+	</header>
+
+	<style> 
+		.preloader {
+			background: -webkit-linear-gradient(left, #090025 0%, #2f0028 100%);
+			background: -o-linear-gradient(left, #090025 0%, #2f0028 100%);
+			background: linear-gradient(to right, #090025 0%, #2f0028 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#090025', endColorstr='#2f0028',GradientType=1 );
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 999;
+		}
+		.preloader-ring {
+			width: 50px;
+		  height: 50px;
+		  margin: 0 auto;
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  -webkit-transform: translate(-50%, -50%);
+		  -ms-transform: translate(-50%, -50%);
+		  -o-transform: translate(-50%, -50%);
+		  transform: translate(-50%, -50%);
+		}
+		.preloader-ring::before, .preloader-ring::after {
+			content: "";
+			display: block;
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+			border: 1px dotted #6042ff;
+			opacity: 0.6;
+			position: absolute;
+			top: 0;
+			left: 0;
+			animation: sk-bounce 2.0s linear infinite;
+		 }
+		.preloader-ring::after {
+			animation-delay: -1.0s;
+		}
+		@keyframes sk-bounce {
+			0% {
+				-webkit-transform: transform: scale(0.0);
+				-ms-transform: transform: scale(0.0);
+				-o-transform: transform: scale(0.0);
+				transform: scale(0.0);
+			}
+			20% {
+				-webkit-transform: transform: scale(1.0);
+				-ms-transform: transform: scale(1.0);
+				-o-transform: transform: scale(1.0);
+				transform: scale(1.0);
+			}
+			40% {
+				-webkit-transform: transform: scale(1.5);
+				-ms-transform: transform: scale(1.5);
+				-o-transform: transform: scale(1.5);
+				transform: scale(1.5);
+			}
+			60% {
+				-webkit-transform: transform: scale(2.0);
+				-ms-transform: transform: scale(2.0);
+				-o-transform: transform: scale(2.0);
+				transform: scale(2.0);
+				opacity: .5;
+			}
+			80% {
+				-webkit-transform: transform: scale(2.5);
+				-ms-transform: transform: scale(2.5);
+				-o-transform: transform: scale(2.5);
+				transform: scale(2.5);
+				opacity: .25;
+			}
+			100% {
+				-webkit-transform: transform: scale(3.0);
+				-ms-transform: transform: scale(3.0);
+				-o-transform: transform: scale(3.0);
+				transform: scale(3.0);
+				opacity: 0;
+			}
+		}
+	</style>
+
+	<div class="preloader">
+		<div class="preloader-ring"></div>
+	</div>
+
+	<main class="preview-page">
+
+		<div class="preview" style="background-image: url(img/preview-bg.jpg)">
+			<div class="preview__inner">
+				<span class="preview__author">Константин Константинопольский</span>
+				<h1 class="preview__name">
+					Нейросеть генерирует изображение на основе 
+					двух исходных  Нейросеть генерирует изображение 
+					на основе двух исходных
+					Нейросеть генерирует изображение на основе 
+					двух исходных  Нейросеть генерирует изображение 
+					на основе двух исходных
+				</h1>
+				<div class="preview__social">
+					<div class="preview__buttons">
+						<button class="preview__likes" type="button">
+							<svg class="preview__likes-icon" viewBox="0 0 172.7 200">
+								<path d="M110.4,1.5c23.6,2.2,44.9,13.3,60.7,29.7h-12.5c-11.6-10-26.1-17.2-42.1-20C57.1,0.4,4.5,49.4,10.3,109
+									c3.9,42.4,38.2,76.8,80.4,80.9c26.1,2.5,49.9-5.8,67.9-21.1H171c-20.2,20.8-49.3,32.7-81.2,29.7c-46.3-4.7-83.7-42.1-88.4-88.4
+									C-4.4,47.5,48-4.6,110.4,1.5z"/>
+								<path d="M59.8,91.4c0,6.1,2.4,11.7,6.6,16l31.8,31.8l0.3-0.3l31.4-31.4c4.2-4.3,6.6-10,6.6-16.1s-2.3-11.7-6.6-16.1
+									c-4.2-4.2-9.9-6.6-16-6.6c-5.9,0-11.5,2.2-15.7,6.3c-4.1-4-9.8-6.3-15.7-6.3c-6.2,0-11.8,2.4-16.1,6.7
+									C62.2,79.6,59.8,85.3,59.8,91.4z M124.7,80.5c2.8,2.8,4.4,6.6,4.4,10.7c0,4.1-1.5,7.9-4.4,10.7l-26.5,26.5l-26.5-26.5
+									c-2.9-2.9-4.4-6.5-4.4-10.6c0-4.1,1.5-7.9,4.4-10.7c2.8-2.8,6.6-4.4,10.7-4.4c4.1,0,7.9,1.5,10.7,4.4l5,5l5-5.1
+									c2.8-2.8,6.6-4.4,10.7-4.4C118,76.1,121.8,77.7,124.7,80.5z"/>
+							</svg>
+							<span class="preview__likes-num">12</span>
+						</button>
+						<button class="preview__comments" type="button">
+							<svg class="preview__comments-icon" viewBox="0 0 171.7 200">
+								<path d="M110.1,2c23.6,2.2,44.9,13.3,60.7,29.7h-12.5c-11.6-10-26.1-17.2-42.1-20C56.9,0.9,4.2,49.9,10,109.5
+									c3.9,42.4,38.2,76.8,80.4,80.9c26.1,2.5,49.9-5.8,67.9-21.1h12.5c-20.2,20.8-49.3,32.7-81.2,29.7c-46.3-4.7-83.7-42.1-88.4-88.4
+									C-4.7,48,47.7-4.1,110.1,2z"/>
+								<path d="M129.6,75.5h-65v44.2H99l20.6,16.6v-16.6h10V75.5z M126.3,116.4h-10v13l-16.1-13H67.9V78.8h58.4V116.4z"/>
+							</svg>
+							<span class="preview__comments-num">12</span>
+						</button>
+					</div>
+					<div class="preview__links">
+						<a class="preview__link preview__link--github noise-btn" href="https://github.com" target="_blank"><span>Проект на GitHub</span></a>
+						<a class="preview__link preview__link--site noise-btn" href="https://example.com" target="_blank"><span>Сайт проекта</span></a>
+					</div>
+				</div>
+			</div>
+
+			<a class="prev-project" href="">
+				<svg viewBox="0 0 47.5 81">
+					<polyline class="daw" points="39.2,40.3 4.3,75.7 6.2,77.6 43.2,40.3 6.2,3 4.3,4.9 38,38.9 39.2,40.3 "/>
+				</svg>
+			</a>
+
+			<a class="next-project" href="">
+				<svg viewBox="0 0 47.5 81">
+					<polyline class="daw" points="39.2,40.3 4.3,75.7 6.2,77.6 43.2,40.3 6.2,3 4.3,4.9 38,38.9 39.2,40.3 "/>
+				</svg>
+			</a>
+		</div>
+
+		<div class="preview-info">
+			<div class="preview-info__video-wrap">
+				<iframe class="preview-info__video" src="https://www.youtube.com/embed/BmBh0NNEm00?enablejsapi=1&?rel=0&controls=1&showinfo=0&mute=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+			</div>
+			<h2 class="preview-info__header">Описание проекта</h2>
+			<div class="preview-info__content">
+				<p>
+					Идейные соображения высшего порядка, а также рамки и место обучения кадров требуют определения и уточнения модели развития. Разнообразный и богатый опыт постоянное информационно- пропагандистское обеспечение нашей деятельности в начительной степени обуславливает создание дальнейших направлений развития. Равным образом начало повседневной работы по формированию позиции требуют отнас анализа системы обучения кадров, соответствует насущным потребностям. Задача организации, в особенности же дальнейшее развитие различных форм деятельности играет важную роль в формировании систем массового участия. Равным образом реализация намеченных плановых заданий в значительной степени обуславливает создание направлений прогрессивного развития.
+				</p>
+				<p>
+					Идейные соображения высшего порядка, а также рамки и место обучения кадров требуют определения и уточнения модели развития. Разнообразный и богатый опыт постоянное информационно- пропагандистское обеспечение нашей деятельности в начительной степени обуславливает создание дальнейших направлений развития. Равным образом начало повседневной работы по формированию позиции требуют отнас анализа системы обучения кадров, соответствует насущным потребностям. Задача организации, в особенности же дальнейшее развитие различных форм деятельности играет важную роль в формировании систем массового участия. Равным образом реализация намеченных плановых заданий в значительной степени обуславливает создание направлений прогрессивного развития.
+				</p>
+				<img src="img/preview-img.jpg" alt="Описание к картинке">
+			</div>
+			<h2 class="preview-info__header">Подзаголовок</h2>
+			<div class="preview-info__content">
+				<p>
+					Идейные соображения высшего порядка, а также рамки и место обучения кадров требуют определения и уточнения модели развития. Разнообразный и богатый опыт постоянное информационно- пропагандистское обеспечение нашей деятельности в начительной степени обуславливает создание дальнейших направлений развития. Равным образом начало повседневной работы по формированию позиции требуют отнас анализа системы обучения кадров, соответствует насущным потребностям. Задача организации, в особенности же дальнейшее развитие различных форм деятельности играет важную роль в формировании систем массового участия. Равным образом реализация намеченных плановых заданий в значительной степени обуславливает создание направлений прогрессивного развития.
+				</p>
+				<h3 class="preview-info__subheader">Состав команды:</h3>
+				<ul class="preview-info__team">
+					<li class="preview-info__member">
+						<span class="preview-info__name">Иван Иванидзе, </span>
+						<span class="preview-info__role">программист</span>
+					</li>
+					<li class="preview-info__member">
+						<span class="preview-info__name">Мариана Викторова</span>, 
+						<span class="preview-info__role">дизайнер</span>
+					</li>
+				</ul>
+				<button class="noise-btn preview__publish-btn">
+					<span>Голосовать</span>
+				</button>
+				<button class="noise-btn preview__unvote-btn">
+					<span>Снять голос</span>
+				</button>
+				<p class="preview__votes">У вас осталось <a href=""><span>2</span> голоса</a></p>
+			</div>
+		</div>
+
+		<div class="comments">
+			<h2 class="comments__header">Комментарии</h2>
+			<div class="comments__content">
+				<div class="comments__left">
+
+					<div class="comment comment--first">
+						<b class="comment__author">Иван Иванов</b>
+						<p class="comment__date">3 дня назад</p>
+						<p class="comment__text">
+							Идейные соображения высшего порядка, а также рамки и место обучения кадров требуют определения и уточнения модели развития. Разнообразный и богатый опыт постоянное информационно-пропагандистское обеспечение нашей деятельности 
+							в значительной степени.
+						</p>
+						<button class="comment__reply">Ответить</button>
+						<div class="comment__underline"></div>
+					</div>
+
+					<div class="comment comment--padding">
+						<b class="comment__author">Иван Иванов</b>
+						<p class="comment__date">3 дня назад</p>
+						<p class="comment__text">
+							Идейные соображения высшего порядка, а также рамки и место обучения кадров требуют определения и уточнения модели развития. Разнообразный и богатый опыт постоянное информационно-пропагандистское обеспечение нашей деятельности 
+							в значительной степени.
+						</p>
+						<button class="comment__reply">Ответить</button>
+						<div class="comment__underline"></div>
+					</div>
+
+				</div>
+				<form class="comments__form form" method="" action="#">
+					<h3 class="form__header">Ваш комментарий</h3>
+
+					<fieldset class="form__group">
+						<div class="form__group-input">
+							<span>Имя</span>
+							<input class="form__input" type="text" name="comment-name" required>
+						</div>
+					</fieldset>
+
+					<fieldset class="form__group">
+						<div class="form__group-input">
+							<span>E-mail</span>
+							<input class="form__input" type="email" name="comment-email" required>
+						</div>
+					</fieldset>
+
+					<fieldset class="form__group form__group--textarea">
+						<div class="form__group-input">
+							<span>Ваш комментарий</span>
+							<textarea class="form__input" name="comment-text" required></textarea>
+						</div>
+					</fieldset>
+	
+					<button class="form__send noise-btn">
+						<span>Отправить</span>
+					</button>
+				</form>
+			</div>
+		</div>
+
+	</main>
+
+	<template id="comment-template" style="display: none;">
+		<div class="comment">
+			<b class="comment__author">Иван Иванов</b>
+			<p class="comment__date">3 дня назад</p>
+			<p class="comment__text">
+				Идейные соображения высшего порядка, а также рамки и место обучения кадров требуют определения и уточнения модели развития. Разнообразный и богатый опыт постоянное информационно-пропагандистское обеспечение нашей деятельности 
+				в значительной степени.
+			</p>
+			<button class="comment__reply">Ответить</button>
+			<div class="comment__underline"></div>
+		</div>
+	</template>
+
+
+	<script>
+		window.addEventListener('load', function () {
+
+			var el = document.querySelector('.preloader');
+			el.style.opacity = 1;
+
+			(function fade() {
+				if ((el.style.opacity -= 0.15) < 0) {
+					window.scrollTo(0, 0);
+					el.style.display = "none";
+				} else {
+					requestAnimationFrame(fade);
+				}
+			})();
+		});
+	</script>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/gsap.js"></script>
+	<script src="js/pixi.js"></script>
+	<script src="js/polyfill.min.js"></script>
+	<script src="js/scrollmagic.js"></script>
+	<script src="js/animation.gsap.js"></script>
+	<script src="js/project.js"></script>
+
+</body>
+</html>
